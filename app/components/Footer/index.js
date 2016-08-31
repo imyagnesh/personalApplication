@@ -5,6 +5,7 @@ import { browserHistory } from 'react-router';
 import IconButton from 'material-ui/IconButton';
 import { FacebookIcon, TwitterIcon, LinkedInIcon, InstagramIcon, GithubIcon, MailIcon } from '../../common/SvgIcons/socialMediaIcons.js';
 import style from './styles.css';
+import logoImg from '../../common/images/logo.png';
 
 const styles = {
   iconStyle: {
@@ -26,7 +27,16 @@ const Footer = ({ messages }) => {
   };
   return (
     <div className={style.footerWrapper}>
-      <p>Yagnesh Modh</p>
+      <div>
+        <span>Yagnesh</span>
+        <IconButton
+          style={{ padding: '6px' }}
+          onTouchTap={() => { changePath('/'); } }
+          >
+          <img className={style.imageStyle} src={logoImg} alt="Logo" />
+        </IconButton>
+        <span>Modh</span>
+      </div>
       <nav>
         {
           messages.menu.map((item, index) =>
@@ -34,8 +44,8 @@ const Footer = ({ messages }) => {
               key={index}
               style={styles.buttonStyle}
               label={<FormattedMessage {...item} />}
-              onTouchTap={() => { changePath(item.path); }}
-            />
+              onTouchTap={() => { changePath(item.path); } }
+              />
           )
         }
       </nav>

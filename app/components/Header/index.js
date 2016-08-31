@@ -51,8 +51,8 @@ const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDraw
   const logoElement = (
     <div className={css.logoStyle}>
       <IconButton
-        onTouchTap={() => { changePath('/'); } }
-        >
+        onTouchTap={() => { changePath('/'); }}
+      >
         <img className={css.imageStyle} src={logoImg} alt="Logo" />
       </IconButton>
     </div>
@@ -64,26 +64,26 @@ const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDraw
         title={logoElement}
         iconElementLeft={iconElementLeft}
         iconElementRight={iconElementRight}
-        />
+      />
       <Drawer
         className={css.leftElement}
         docked={false}
         open={drawerState}
         onRequestChange={onDrawerRequestChange}
-        >
+      >
         <ListItem
           className={css.menuHeader}
           primaryText={<div><Avatar size={60}>Y</Avatar><h3><FormattedMessage {...messages.menuHeaderName} /></h3></div>}
           secondaryText={<h5 style={{ color: 'white' }}><FormattedMessage {...messages.menuHeaderDescription} /></h5>}
-          />
+        />
         {
           messages.menu.map((item, index) =>
             <div key={index}>
               <ListItem
                 primaryText={<FormattedMessage {...item} />}
-                onTouchTap={() => { toggleDrawer(); changePath(item.path); } }
-                leftIcon={React.createElement(IconComponents[item.icon]) }
-                />
+                onTouchTap={() => { toggleDrawer(); changePath(item.path); }}
+                leftIcon={React.createElement(IconComponents[item.icon])}
+              />
               <Divider />
             </div>
           )
