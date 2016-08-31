@@ -12,3 +12,10 @@
     width: 36px;
     height: 36px;
 }
+
+.footerLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+}

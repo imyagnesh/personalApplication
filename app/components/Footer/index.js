@@ -27,7 +27,7 @@ const Footer = ({ messages }) => {
   };
   return (
     <div className={style.footerWrapper}>
-      <div>
+      <div className={style.footerLogo}>
         <span>Yagnesh</span>
         <IconButton
           style={{ padding: '6px' }}
