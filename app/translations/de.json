@@ -1,0 +1,117 @@
+[
+  {
+    "id": "en",
+    "defaultMessage": "English",
+    "message": "Englisch"
+  },
+  {
+    "id": "de",
+    "defaultMessage": "German",
+    "message": "Deutsche"
+  },
+  {
+    "id": "app.containers.App.menu.Home",
+    "defaultMessage": "Home",
+    "message": "Zuhause"
+  },
+  {
+    "id": "app.containers.App.menu.About",
+    "defaultMessage": "About",
+    "message": "Etwa"
+  },
+  {
+    "id": "app.containers.App.menu.Resume",
+    "defaultMessage": "Resume",
+    "message": "Fortsetzen"
+  },
+  {
+    "id": "app.containers.App.menu.Portfolio",
+    "defaultMessage": "Portfolio",
+    "message": "Mappe"
+  },
+  {
+    "id": "app.containers.App.menu.Blog",
+    "defaultMessage": "Blog",
+    "message": "Blog"
+  },
+  {
+    "id": "app.containers.App.menu.Contact",
+    "defaultMessage": "Contact",
+    "message": "Kontakt"
+  },
+  {
+    "id": "app.containers.App.menu.HeaderName",
+    "defaultMessage": "Yagnesh Modh",
+    "message": "Yagnesh Modh"
+  },
+  {
+    "id": "app.containers.App.menu.HeaderDescription",
+    "defaultMessage": "Creative Full stack Developer",
+    "message": "Creative Full stack Developer"
+  },
+  {
+    "id": "app.containers.Home.HeaderText",
+    "defaultMessage": "Develop Better. Faster. Toghether.",
+    "message": "entwickeln Bessere. schneller. Toghether."
+  },
+  {
+    "id": "app.containers.Home.SubHeaderText",
+    "defaultMessage": "I'm here to create meaningful and lasting relationships with my clients.",
+    "message": "Ich bin hier sinnvolle  und dauerhafte Beziehung zu meinen Kunden zu schaffen."
+  },
+  {
+    "id": "app.containers.Home.HeaderButtonText",
+    "defaultMessage": "Hire Me",
+    "message": "Stellt mich ein"
+  },
+  {
+    "id": "app.containers.About.HeaderText",
+    "defaultMessage": "MY PASSIONS AND PERSONALITY",
+    "message": "meine Leidenschaft und Persönlichkeit"
+  },
+  {
+    "id": "app.containers.About.SubHeaderText",
+    "defaultMessage": "Discover who I am as a person aside from being a developer.",
+    "message": "Discover who I am as a person aside from being a developer."
+  },
+  {
+    "id": "app.containers.Resume.HeaderText",
+    "defaultMessage": "DIG A LITTLE DEEPER",
+    "message": "ein wenig tiefer graben"
+  },
+  {
+    "id": "app.containers.Resume.SubHeaderText",
+    "defaultMessage": "find out what I've accomplished over the years.",
+    "message": "Find out what I've accomplished over the years."
+  },
+  {
+    "id": "app.containers.Portfolio.HeaderText",
+    "defaultMessage": "THE PORTFOLIO",
+    "message": "das Portfolio"
+  },
+  {
+    "id": "app.containers.Portfolio.SubHeaderText",
+    "defaultMessage": "My work as full-stack developer.",
+    "message": "My work as full-stack developer."
+  },
+  {
+    "id": "app.containers.Blog.HeaderText",
+    "defaultMessage": "THE BLOG",
+    "message": "Der Blog"
+  },
+  {
+    "id": "app.containers.Blog.SubHeaderText",
+    "defaultMessage": "I'm here to create meaningful and lasting relationships with my clients.",
+    "message": "I'm here to create meaningful and lasting relationships with my clients."
+  },
+  {
+    "id": "app.containers.Contact.HeaderText",
+    "defaultMessage": "LETS HAVE A CHAT",
+    "message": "lassen Sie uns im Chat"
+  },
+  {
+    "id": "app.containers.Contact.SubHeaderText",
+    "defaultMessage": "Reach out and send a friendly hello.",
+    "message": "Reach out and send a friendly hello."
+  }
+]

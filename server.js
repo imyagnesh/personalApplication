@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 
 const path = require('path');
+const open = require('open');
 const express = require('express');
 const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -16,13 +17,12 @@ if (isDeveloping) {
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
     contentBase: 'src',
+    hot: true,
+    quiet: false,
+    noInfo: false,
+    lazy: false,
     stats: {
-      colors: true,
-      hash: false,
-      timings: true,
-      chunks: false,
-      chunkModules: false,
-      modules: false
+      colors: true
     }
   });
 
@@ -44,4 +44,5 @@ app.listen(port, '0.0.0.0', function onStart(err) {
     console.log(err);
   }
   console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
+  open(`http://localhost:${port}`);
 });

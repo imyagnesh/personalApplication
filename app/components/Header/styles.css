@@ -1,0 +1,47 @@
+.headerElement {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.rightElement {
+  display: flex;
+}
+
+.tabElement {
+  width: 40em;
+}
+
+.tabStyle:last-child {
+  border: 2px solid rgb(255, 64, 129)!important;
+  color: rgb(255, 64, 129)!important;
+}
+
+.leftElement {
+  display: none!important;
+}
+
+.menuHeader {
+  height: 166px;
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../common/images/photo-top.jpg')!important;
+  background-size: cover!important;
+  color: white!important;
+}
+
+.imageStyle{
+    width: 36px;
+    height: 36px;
+}
+
+@media screen and (max-width: 1024px) {
+  .tabElement {
+    display: none;
+  }
+  .leftElement {
+    display: block!important;
+  }
+  .logoStyle{
+    text-align: center;
+  }
+}
