@@ -52,6 +52,7 @@ const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDraw
     <div className={css.logoStyle}>
       <IconButton
         onTouchTap={() => { changePath('/'); }}
+        style={{ padding: '12px 6px' }}
       >
         <img className={css.imageStyle} src={logoImg} alt="Logo" />
       </IconButton>

@@ -57,31 +57,49 @@ export default defineMessages({
       id: 'app.containers.App.socilaIcons.Facebook',
       defaultMessage: 'Facebook',
       path: '/',
+      icon: 'FacebookIcon',
     },
     {
       id: 'app.containers.App.socilaIcons.Twitter',
       defaultMessage: 'Twitter',
       path: '/about',
+      icon: 'TwitterIcon',
     },
     {
       id: 'app.containers.App.socilaIcons.LinkedIn',
       defaultMessage: 'LinkedIn',
       path: '/resume',
+      icon: 'LinkedInIcon',
     },
     {
       id: 'app.containers.App.socilaIcons.Instagram',
       defaultMessage: 'Instagram',
       path: '/portfolio',
+      icon: 'InstagramIcon',
     },
     {
       id: 'app.containers.App.socilaIcons.Github',
       defaultMessage: 'Github',
       path: '/blog',
+      icon: 'GithubIcon',
     },
     {
       id: 'app.containers.App.socilaIcons.Mail',
       defaultMessage: 'Mail',
       path: '/contact',
+      icon: 'MailIcon',
     },
   ],
+  FooterCopyRight: {
+    id: 'app.containers.App.Footer.CopyRight',
+    defaultMessage: '© 2016 Yagnesh Modh.All rights reserved.Full-stack Javascript Developer',
+  },
+  FirstName: {
+    id: 'app.containers.App.Footer.FirstName',
+    defaultMessage: 'Yagnesh',
+  },
+  LastName: {
+    id: 'app.containers.App.Footer.LastName',
+    defaultMessage: 'Modh',
+  },
 });
