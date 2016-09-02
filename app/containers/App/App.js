@@ -10,6 +10,18 @@ import ContentUp from 'material-ui/svg-icons/navigation/arrow-upward';
 
 import css from './styles.css';
 
+const style = {
+  scrollButtonStyle: {
+    position: 'fixed',
+    bottom: 50,
+    right: 30,
+    zIndex: 1,
+    cursor: 'pointer',
+    transitionDuration: '0.2s',
+    transitionTimingFunction: 'linear',
+    transitionDelay: '0s'}
+}
+
 class App extends Component {
 
   constructor(props, context) {
@@ -36,7 +48,7 @@ class App extends Component {
           meta={[
             { name: 'description', content: 'Personal Application' },
           ]}
-        />
+          />
         <Header
           loading={this.props.loading}
           pathname={this.props.pathname}
@@ -44,8 +56,8 @@ class App extends Component {
           drawerState={this.state.open}
           onDrawerRequestChange={this.onDrawerRequestChange}
           messages={messages}
-        />
-        <ScrollToTop showUnder={160}>
+          />
+        <ScrollToTop style={style.scrollButtonStyle} showUnder={160}>
           <FloatingActionButton mini secondary>
             <ContentUp />
           </FloatingActionButton>

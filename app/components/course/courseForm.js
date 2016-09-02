@@ -1,21 +1,21 @@
-import React, {PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import SelectField from '../SelectField/index';
 import MenuItem from 'material-ui/MenuItem';
 import TextField from '../TextField/index';
 
 const validate = values => {
-    const errors = {};
-    const requiredFields = ['title', 'authorId', 'length', 'category'];
-    requiredFields.forEach(field => {
-        if (!values[field]) {
-            errors[field] = 'Required';
+  const errors = {};
+  const requiredFields = ['title', 'authorId', 'length', 'category'];
+  requiredFields.forEach(field => {
+      if (!values[field]) {
+          errors[field] = 'Required';
         }
     });
     //   if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     //     errors.email = 'Invalid email address'
     //   }
-    return errors;
+  return errors;
 };
 
 // const renderCheckbox = ({ input, label }) => (
@@ -33,23 +33,23 @@ const validate = values => {
 // )
 
 let MaterialUiForm = props => {
-    const { authors, handleSubmit, pristine, reset, submitting } = props;
-    return (
+  const { authors, handleSubmit, pristine, reset, submitting } = props;
+  return (
         <form onSubmit={handleSubmit}>
             <div>
-                <Field name="title" component={TextField} label="Title"/>
+                <Field name="title" component={TextField} label="Title" />
             </div>
             <div>
-                <Field name="category" component={TextField} label="Category"/>
+                <Field name="category" component={TextField} label="Category" />
             </div>
             <div>
-                <Field name="length" component={TextField} label="Length"/>
+                <Field name="length" component={TextField} label="Length" />
             </div>
 
             <div>
                 <Field name="authorId" component={SelectField} label="Author">
                     {authors.map((author) => {
-                        return <MenuItem key={author.value} value={author.value} primaryText={author.text} />;
+                      return <MenuItem key={author.value} value={author.value} primaryText={author.text} />;
                     })
                     }
                 </Field>
@@ -65,17 +65,17 @@ let MaterialUiForm = props => {
 };
 
 MaterialUiForm.propTypes = {
-    authors: PropTypes.array.isRequired,
-    handleSubmit: PropTypes.func.isRequired,
-    pristine: PropTypes.bool.isRequired,
-    reset: PropTypes.func.isRequired,
-    submitting: PropTypes.bool.isRequired
+  authors: PropTypes.array.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
 };
 
 MaterialUiForm = reduxForm({
-    form: 'MaterialUiForm',
-    enableReinitialize: true,
-    validate
+  form: 'MaterialUiForm',
+  enableReinitialize: true,
+  validate,
 })(MaterialUiForm);
 
 

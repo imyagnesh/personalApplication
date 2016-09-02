@@ -158,5 +158,10 @@
     "id": "app.containers.App.socilaIcons.Mail",
     "defaultMessage": "Mail",
     "message": "Mail"
+  },
+  {
+    "id": "app.containers.Contact.ContactForm.Header",
+    "defaultMessage": "Get a website that looks amazing and actually works",
+    "message": "Get a website that looks amazing and actually works"
   }
 ]

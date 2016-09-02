@@ -23,3 +23,7 @@ body {
   padding: 0;
   flex-direction: column;
 }
+
+.scrollButton{
+  z-index: 1;
+}

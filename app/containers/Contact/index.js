@@ -2,8 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import CoverImg from '../../components/coverImg/index';
 import GoogleMap from '../../components/Map/index';
+import ContactForm from '../../components/ContactForm/index';
+import ContactInformation from '../../components/ContactInformation/index';
 import PosterImg from '../../common/coverVideo/cover.jpg';
 import messages from './messages';
+
+import style from './styles.css';
 
 class Contact extends Component {
   constructor(props) {
@@ -20,6 +24,17 @@ class Contact extends Component {
         defaultAnimation: 2,
       }],
     };
+
+    this.sendContact = this.sendContact.bind(this);
+  }
+
+  sendContact(values) {
+    new Promise(resolve => {
+      setTimeout(() => {  // simulate server latency
+        alert(values);
+        resolve();
+      }, 500);
+    });
   }
 
   render() {
@@ -30,6 +45,15 @@ class Contact extends Component {
           headerText={messages.headerText}
           subHeaderText={messages.subHeaderText}
         />
+        <div className={style.content}>
+          <ContactInformation
+            messages={messages}
+          />
+          <ContactForm
+            messages={messages}
+            onSubmit={this.sendContact}
+          />
+        </div>
         <GoogleMap
           markers={this.state.markers}
           languageId={this.state.languageId}
