@@ -53,7 +53,8 @@ const Footer = ({ messages }) => {
       <nav>
         {
           messages.socialIcons.map((item, index) =>
-            <IconButton key={index}
+            <IconButton
+              key={index}
               tooltip={<FormattedMessage {...item} />}
               style={styles.iconStyle}
               children={React.createElement(socialIcons[item.icon], styles.viewBox)}

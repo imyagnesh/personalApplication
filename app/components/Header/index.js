@@ -74,7 +74,7 @@ const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDraw
       >
         <ListItem
           className={css.menuHeader}
-          primaryText={<div><Avatar size={60}>Y</Avatar><h3><FormattedMessage {...messages.menuHeaderName} /></h3></div>}
+          primaryText={<div><Avatar size={60}>Y</Avatar><h3><FormattedMessage {...messages.FirstName} /> <FormattedMessage {...messages.LastName} /></h3></div>}
           secondaryText={<h5 style={{ color: 'white' }}><FormattedMessage {...messages.menuHeaderDescription} /></h5>}
         />
         {

@@ -113,5 +113,50 @@
     "id": "app.containers.Contact.SubHeaderText",
     "defaultMessage": "Reach out and send a friendly hello.",
     "message": "Reach out and send a friendly hello."
+  },
+  {
+    "id": "app.containers.App.Footer.FirstName",
+    "defaultMessage": "Yagnesh",
+    "message": "Yagnesh"
+  },
+  {
+    "id": "app.containers.App.Footer.LastName",
+    "defaultMessage": "Modh",
+    "message": "Modh"
+  },
+  {
+    "id": "app.containers.App.Footer.CopyRight",
+    "defaultMessage": "© 2016 Yagnesh Modh.All rights reserved.Full-stack Javascript Developer",
+    "message": "© 2016 Yagnesh Modh.All rights reserved.Full-stack Javascript Developer"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.Facebook",
+    "defaultMessage": "Facebook",
+    "message": "Facebook"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.Twitter",
+    "defaultMessage": "Twitter",
+    "message": "Twitter"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.LinkedIn",
+    "defaultMessage": "LinkedIn",
+    "message": "LinkedIn"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.Instagram",
+    "defaultMessage": "Instagram",
+    "message": "Instagram"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.Github",
+    "defaultMessage": "Github",
+    "message": "Github"
+  },
+  {
+    "id": "app.containers.App.socilaIcons.Mail",
+    "defaultMessage": "Mail",
+    "message": "Mail"
   }
 ]

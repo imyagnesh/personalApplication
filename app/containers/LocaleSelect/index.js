@@ -11,6 +11,7 @@ import { injectIntl, intlShape } from 'react-intl';
 
 const LocaleSelect = ({ onChangeLocale, languages, languageId, intl }) => {
   const changeLanguage = (event, child) => {
+    localStorage.setItem('locale', child.props.value);
     onChangeLocale(child.props.value);
   };
   return (
