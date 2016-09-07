@@ -1,8 +1,15 @@
 .wrapper {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
+  width: 37em;
+  height: 37em;
+  order: 0;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  overflow: hidden;
+  display: inline-block;
   padding: 1em;
+  margin: 10px 0;
 }
 
 .contactForm {
@@ -11,5 +18,15 @@
 }
 
 .sendButton {
-    align-self: center;
+  align-self: center;
+  margin: 1em;
 }
+
+.textDiv {
+  min-height: 103px;
+}
+
+.multiLineTextDiv {
+  min-height: 137px;
+}
+

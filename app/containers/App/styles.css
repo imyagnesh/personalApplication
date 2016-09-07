@@ -1,29 +1,30 @@
-html,
-body {
-  height: 100%;
-  width: 100%;
+a {
+  color: #ff4081;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 24px;
 }
-
-:global(#root) {
-  min-height: 100%;
-  min-width: 100%;
+.scrollButton{
+  z-index: 1;
 }
 
 .wrapper {
-  max-width: 100%;
-  margin: 0;
   display: flex;
-  min-height: 100%;
-  padding: 0;
   flex-direction: column;
-}
-
-.scrollButton{
-  z-index: 1;
 }

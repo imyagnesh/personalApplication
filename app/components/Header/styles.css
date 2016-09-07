@@ -34,6 +34,10 @@
     height: 36px;
 }
 
+.logoStyle {
+  height: 64px;
+}
+
 @media screen and (max-width: 1024px) {
   .tabElement {
     display: none;

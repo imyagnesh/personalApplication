@@ -7,6 +7,7 @@ import ContactInformation from '../../components/ContactInformation/index';
 import PosterImg from '../../common/coverVideo/cover.jpg';
 import messages from './messages';
 
+
 import style from './styles.css';
 
 class Contact extends Component {
@@ -39,7 +40,7 @@ class Contact extends Component {
 
   render() {
     return (
-      <div>
+      <main className={style.wrapper}>
         <CoverImg
           PosterImg={PosterImg}
           headerText={messages.headerText}
@@ -53,12 +54,13 @@ class Contact extends Component {
             messages={messages}
             onSubmit={this.sendContact}
           />
+
         </div>
         <GoogleMap
           markers={this.state.markers}
           languageId={this.state.languageId}
         />
-      </div>
+      </main>
     );
   }
 }

@@ -1,33 +1,23 @@
-// React Componants
+// React Components
 import React, { PropTypes } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { browserHistory } from 'react-router';
-// material Componants
+// material Components
 import AppBar from 'material-ui/AppBar';
-import Avatar from 'material-ui/Avatar';
-import Drawer from 'material-ui/Drawer';
-import Divider from 'material-ui/Divider';
-import { ListItem } from 'material-ui/List';
+
 import { Tabs, Tab } from 'material-ui/Tabs';
 import IconButton from 'material-ui/IconButton';
-import LinearProgress from 'material-ui/LinearProgress';
-import HomeIcon from 'material-ui/svg-icons/action/home';
-import AboutIcon from 'material-ui/svg-icons/social/person';
-import BlogIcon from 'material-ui/svg-icons/content/create';
-import ContactIcon from 'material-ui/svg-icons/content/send';
-import PortfolioIcon from 'material-ui/svg-icons/action/work';
-import ResumeIcon from 'material-ui/svg-icons/action/description';
+
+
 import NavigationMenu from 'material-ui/svg-icons/navigation/menu';
 import logoImg from '../../common/images/logo.png';
-// local Componants
+// local Components
 import LocaleSelect from '../../containers/LocaleSelect/index';
-// local css Componants
+// local css Components
 import css from './styles.css';
 
 
-const IconComponents = { HomeIcon, AboutIcon, ResumeIcon, PortfolioIcon, BlogIcon, ContactIcon };
-
-const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDrawerRequestChange }) => {
+const Header = ({ pathname, toggleDrawer, messages }) => {
   const changePath = (value) => {
     browserHistory.push(value);
   };
@@ -59,47 +49,18 @@ const Header = ({ loading, pathname, toggleDrawer, drawerState, messages, onDraw
     </div>
   );
   return (
-    <div className={css.headerElement}>
-      {loading && <LinearProgress mode="indeterminate" />}
-      <AppBar
-        title={logoElement}
-        iconElementLeft={iconElementLeft}
-        iconElementRight={iconElementRight}
-      />
-      <Drawer
-        className={css.leftElement}
-        docked={false}
-        open={drawerState}
-        onRequestChange={onDrawerRequestChange}
-      >
-        <ListItem
-          className={css.menuHeader}
-          primaryText={<div><Avatar size={60}>Y</Avatar><h3><FormattedMessage {...messages.FirstName} /> <FormattedMessage {...messages.LastName} /></h3></div>}
-          secondaryText={<h5 style={{ color: 'white' }}><FormattedMessage {...messages.menuHeaderDescription} /></h5>}
-        />
-        {
-          messages.menu.map((item, index) =>
-            <div key={index}>
-              <ListItem
-                primaryText={<FormattedMessage {...item} />}
-                onTouchTap={() => { toggleDrawer(); changePath(item.path); }}
-                leftIcon={React.createElement(IconComponents[item.icon])}
-              />
-              <Divider />
-            </div>
-          )
-        }
-      </Drawer>
-    </div>
+    <AppBar
+      style={{ position: 'fixed' }}
+      title={logoElement}
+      iconElementLeft={iconElementLeft}
+      iconElementRight={iconElementRight}
+    />
   );
 };
 
 Header.propTypes = {
-  loading: PropTypes.bool.isRequired,
   pathname: PropTypes.string.isRequired,
-  drawerState: PropTypes.bool.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
-  onDrawerRequestChange: PropTypes.func.isRequired,
   messages: PropTypes.object.isRequired,
 };
 

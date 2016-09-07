@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import ContentSend from 'material-ui/svg-icons/content/send';
-import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
 
 import style from './styles.css';
 
@@ -30,31 +30,39 @@ const renderTextField = ({ input, label, meta: { touched, error }, ...custom }) 
     fullWidth
     {...input}
     {...custom}
-    />
+  />
 );
 
 
 const ContactForm = (({ messages, handleSubmit, pristine, submitting }) =>
-  <div className={style.wrapper}>
-    <p>
+  <Paper className={style.wrapper} zDepth={2}>
+    <h3>
       Say Hello
-    </p>
-    <Divider />
+    </h3>
     <form className={style.contactForm} onSubmit={handleSubmit}>
-      <Field name="name" component={renderTextField} label="Your Name" />
-      <Field name="contact" component={renderTextField} label="Mobile Number" />
-      <Field name="email" component={renderTextField} label="Email Address" />
-      <Field name="message" component={renderTextField} label="Message" rows={3} multiLine />
-      <RaisedButton
-        label="Send"
-        labelPosition="before"
-        type="submit"
-        icon={<ContentSend />}
-        disabled={pristine || submitting}
-        className={style.sendButton}
+      <div className={style.textDiv}>
+        <Field name="name" component={renderTextField} label="Your Name" />
+      </div>
+      <div className={style.textDiv}>
+        <Field name="contact" component={renderTextField} label="Mobile Number" />
+      </div>
+      <div className={style.textDiv}>
+        <Field name="email" component={renderTextField} label="Email Address" />
+      </div>
+      <div className={style.multiLineTextDiv}>
+        <Field name="message" component={renderTextField} label="Message" rows={3} multiLine />
+      </div>
+      <div className={style.sendButton}>
+        <RaisedButton
+          label="Send"
+          labelPosition="before"
+          type="submit"
+          icon={<ContentSend />}
+          disabled={pristine || submitting}
         />
+      </div>
     </form>
-  </div>
+  </Paper>
 );
 
 ContactForm.propTypes = {

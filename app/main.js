@@ -9,7 +9,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 // import withScroll from 'scroll-behavior';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import muiTheme from './muiTheme';
 import LanguageProvider from './containers/LanguageProvider';
 import { getRoutes } from './routes';
@@ -28,9 +28,7 @@ const appRender = (translatedMessages) => {
   render(
     <Provider store={store}>
       <LanguageProvider messages={translatedMessages}>
-        <MuiThemeProvider muiTheme={muiTheme}>
-          <Router history={history} routes={getRoutes(store)} />
-        </MuiThemeProvider>
+        <Router history={history} routes={getRoutes(store)} />
       </LanguageProvider>
     </Provider>,
     document.getElementById('root')

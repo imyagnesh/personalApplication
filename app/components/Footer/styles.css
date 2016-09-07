@@ -4,13 +4,13 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background: #26262a;
+  background: #424242;
   color: rgba(255, 255, 255, .4);
 }
 
-.imageStyle{
-    width: 36px;
-    height: 36px;
+.imageStyle {
+  width: 36px;
+  height: 36px;
 }
 
 .footerLogo {

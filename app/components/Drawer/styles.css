@@ -1,0 +1,16 @@
+.leftElement {
+  display: none!important;
+}
+
+.menuHeader {
+  height: 166px;
+  background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../common/images/photo-top.jpg')!important;
+  background-size: cover!important;
+  color: white!important;
+}
+
+@media screen and (max-width: 1024px) {
+  .leftElement {
+    display: block!important;
+  }
+}

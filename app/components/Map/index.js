@@ -18,7 +18,7 @@ import CircularProgress from 'material-ui/CircularProgress';
  * https://facebook.github.io/react/blog/2015/09/10/react-v0.14-rc1.html#stateless-function-components
  */
 const SimpleMap = ({ markers, containerElementProps, languageId }) => (
-  <section style={{ height: '100%' }}>
+  <section>
     <ScriptjsLoader
       hostname={'maps.googleapis.com'}
       pathname={'/maps/api/js'}
