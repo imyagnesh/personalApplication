@@ -1,20 +1,11 @@
 .wrapper {
-  width: 37em;
-  height: 37em;
-  order: 0;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  overflow: hidden;
-  display: inline-block;
-  padding: 1em;
-  margin: 10px 0;
+  flex: 0 1 40%;
 }
 
 .contactForm {
   display: flex;
   flex-direction: column;
+  padding: 12px;
 }
 
 .sendButton {
@@ -22,11 +13,13 @@
   margin: 1em;
 }
 
-.textDiv {
-  min-height: 103px;
+.header {
+  padding: 12px;
+  text-align: center;
 }
 
-.multiLineTextDiv {
-  min-height: 137px;
+.subHeader {
+  padding: 6px;
+  text-align: center;
 }
 

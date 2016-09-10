@@ -20,3 +20,12 @@
   margin: 1em;
   color: rgba(255, 255, 255, 0.870588);
 }
+
+.socialIconStyle {
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.870588);
+}
+
+.buttonColor {
+  color: rgba(255, 255, 255, 0.870588)!important;
+}

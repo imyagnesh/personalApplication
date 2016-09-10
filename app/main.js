@@ -28,7 +28,7 @@ const appRender = (translatedMessages) => {
   render(
     <Provider store={store}>
       <LanguageProvider messages={translatedMessages}>
-        <Router history={history} routes={getRoutes(store)} />
+        <Router history={history} routes={getRoutes(store)} onUpdate={() => window.scrollTo(0, 0)} />
       </LanguageProvider>
     </Provider>,
     document.getElementById('root')

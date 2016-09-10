@@ -2,7 +2,7 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {
   cyan500, cyan700,
-  pinkA200,
+  redA200,
   grey100, grey300, grey400, grey500,
   white, darkBlack, fullBlack,
 } from 'material-ui/styles/colors';
@@ -13,7 +13,7 @@ export default getMuiTheme({
     primary1Color: cyan500,
     primary2Color: cyan700,
     primary3Color: grey400,
-    accent1Color: pinkA200,
+    accent1Color: redA200,
     accent2Color: grey100,
     accent3Color: grey500,
     textColor: darkBlack,
@@ -30,9 +30,6 @@ export default getMuiTheme({
   {
     avatar: {
       borderColor: null,
-    },
-    appBar: {
-      color: 'transparent',
     },
     tabs: {
       backgroundColor: 'transparent',

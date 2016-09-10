@@ -7,6 +7,8 @@ import {
 import { default as ScriptjsLoader } from 'react-google-maps/lib/async/ScriptjsLoader';
 
 import CircularProgress from 'material-ui/CircularProgress';
+import Paper from 'material-ui/Paper';
+
 
 /*
  * This is the modify version of:
@@ -32,7 +34,8 @@ const SimpleMap = ({ markers, containerElementProps, languageId }) => (
         <div
           {...containerElementProps}
           style={{
-            height: '25em',
+            height: '100%',
+            minHeight: '460px',
           }}
         />
       }

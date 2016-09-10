@@ -17,7 +17,11 @@ import LocaleSelect from '../../containers/LocaleSelect/index';
 import css from './styles.css';
 
 
-const Header = ({ pathname, toggleDrawer, messages }) => {
+const Header = ({ pathname, toggleDrawer, messages, UpdateBackground }) => {
+  let backgroundStyle = '';
+  if (UpdateBackground) {
+    backgroundStyle = css.headerBackground;
+  }
   const changePath = (value) => {
     browserHistory.push(value);
   };
@@ -50,7 +54,7 @@ const Header = ({ pathname, toggleDrawer, messages }) => {
   );
   return (
     <AppBar
-      style={{ position: 'fixed' }}
+      className={[css.appBarStyle, backgroundStyle].join(' ')}
       title={logoElement}
       iconElementLeft={iconElementLeft}
       iconElementRight={iconElementRight}
@@ -62,6 +66,7 @@ Header.propTypes = {
   pathname: PropTypes.string.isRequired,
   toggleDrawer: PropTypes.func.isRequired,
   messages: PropTypes.object.isRequired,
+  UpdateBackground: PropTypes.bool.isRequired,
 };
 
 export default Header;

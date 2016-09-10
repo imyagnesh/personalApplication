@@ -21,6 +21,7 @@ module.exports = {
     new WebpackMd5Hash(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new HtmlWebpackPlugin({
+      hash: true,
       template: 'app/index.tpl.html',
       minify: {
         removeComments: true,

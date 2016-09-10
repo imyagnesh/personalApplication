@@ -1,75 +1,70 @@
 import React, { PropTypes } from 'react';
-import * as socialIcons from '../../common/SvgIcons/socialMediaIcons.js';
 import { FormattedMessage } from 'react-intl';
-import { List, ListItem } from 'material-ui/List';
-import IconButton from 'material-ui/IconButton';
 import CommunicationCall from 'material-ui/svg-icons/communication/call';
 import CommunicationEmail from 'material-ui/svg-icons/communication/email';
-import SocialPerson from 'material-ui/svg-icons/social/person';
 import SocialPublic from 'material-ui/svg-icons/social/public';
-import ActionHome from 'material-ui/svg-icons/action/home';
-import Paper from 'material-ui/Paper';
-
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import MapsPlace from 'material-ui/svg-icons/maps/place';
 import style from './styles.css';
 
-const styles = {
-  iconStyle: {
-    width: 32,
-    height: 32,
-  },
-  buttonStyle: {
-    color: 'rgba(255, 255, 255, 0.870588)',
-  },
-  viewBox: {
-    viewBox: '0 0 32 32',
-    color: '#000',
-  },
-  addressStyle: {
-    margin: '5px 0 0',
-  },
-};
+import baseStyle from '../../common/Style/baseStyle.css';
+
+
+
+// <div className={style.socialIconNav}>
+//         <h3 className={style.header}>
+//           I am Social
+//         </h3>
+//         <nav>
+//           {
+//             messages.socialIcons.map((item, index) =>
+//               <IconButton
+//                 key={index}
+//                 tooltip={<FormattedMessage {...item} />}
+//                 children={React.createElement(socialIcons[item.icon], styles.viewBox)}
+//               />
+//             )
+//           }
+//         </nav>
+//       </div>
 
 const ContactInformation = ({ messages }) => {
+  const contactInfoDivStyle = [baseStyle.row, style.ContactInfoDivWidth, baseStyle.alignStartCenter].join(' ');
   return (
-    <Paper className={style.wrapper} zDepth={2}>
-      <h3>
-        Contact Information
-      </h3>
-      <List>
-        <ListItem
-          leftIcon={<SocialPerson />}
-          primaryText="Yagnesh Modh"
-          />
-        <ListItem
-          leftIcon={<ActionHome />}
-          primaryText={<div><div>B-113 SK Aster Apartment</div><div style={styles.addressStyle}>Electronic City Phase 1</div><div style={styles.addressStyle}>Bangalore - 560100</div></div>}
-          />
-        <ListItem
-          leftIcon={<CommunicationCall />}
-          primaryText="(650) 555 - 1234"
-          />
-        <ListItem
-          leftIcon={<CommunicationEmail />}
-          primaryText="hello@yagneshmodh.in"
-          />
-        <ListItem
-          leftIcon={<SocialPublic />}
-          primaryText="http://www.yagneshmodh.in"
-          />
-      </List>
-      <nav>
-        {
-          messages.socialIcons.map((item, index) =>
-            <IconButton
-              key={index}
-              tooltip={<FormattedMessage {...item} />}
-              style={styles.iconStyle}
-              children={React.createElement(socialIcons[item.icon], styles.viewBox) }
-              />
-          )
-        }
-      </nav>
-    </Paper>
+    <div className={[baseStyle.content, baseStyle.marginCenter, baseStyle.wrap].join(' ')}>
+      <div className={contactInfoDivStyle}>
+        <FloatingActionButton secondary>
+          <MapsPlace />
+        </FloatingActionButton>
+        <div style={{ margin: '1rem' }}>
+          <h1 className={baseStyle.subHeader}>B-113 SK Aster Apartment, Electronic City Phase 1, Bangalore - 560100, India</h1>
+        </div>
+      </div>
+      <div className={contactInfoDivStyle}>
+        <FloatingActionButton secondary>
+          <CommunicationCall />
+        </FloatingActionButton>
+        <div style={{ margin: '1rem' }}>
+          <h1 className={baseStyle.subHeader}>+91-8690090417</h1>
+        </div>
+      </div>
+      <div className={contactInfoDivStyle}>
+        <FloatingActionButton secondary>
+          <CommunicationEmail />
+        </FloatingActionButton>
+        <div style={{ margin: '1rem' }}>
+          <h1 className={baseStyle.subHeader}>hello@yagneshmodh.in</h1>
+        </div>
+      </div>
+      <div className={contactInfoDivStyle}>
+        <FloatingActionButton secondary>
+          <SocialPublic />
+        </FloatingActionButton>
+        <div style={{ margin: '1rem' }}>
+          <h1 className={baseStyle.subHeader}>www.yagneshmodh.in</h1>
+        </div>
+      </div>
+    </div>
   );
 };
 

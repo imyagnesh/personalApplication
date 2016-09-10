@@ -1,0 +1,408 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('../font/fontello.eot');
+  src: url('../font/fontello.eot') format('embedded-opentype'), url('../font/fontello.woff') format('woff'), url('../font/fontello.ttf') format('truetype'), url('../font/fontello.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fontIcon {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+  /* You can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  position: relative;
+  font-family: Roboto, Helvetica Neue, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.upperCase {
+  text-transform: uppercase
+}
+
+.display-4 {
+  font-size: 112px;
+  font-weight: 300;
+  letter-spacing: -.01em;
+  line-height: 112px;
+}
+
+.display-3 {
+  font-size: 56px;
+  font-weight: 400;
+  letter-spacing: -.005em;
+  line-height: 56px;
+}
+
+.display-2 {
+  font-size: 45px;
+  font-weight: 400;
+  line-height: 64px;
+}
+
+.display-1 {
+  font-size: 34px;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: .005em;
+}
+
+.subHeader {
+  font-weight: 400;
+  letter-spacing: .01em;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.content {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  max-width: 1280px;
+}
+
+.content> * {
+  flex: 1 1 0%;
+  margin: 12px;
+}
+
+.row {
+  flex-direction: row;
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+  display: flex;
+}
+
+.flexMargin {
+  margin: 8px;
+}
+
+.flexPadding {
+  padding: 8px;
+}
+
+.flex {
+  flex: 1;
+}
+
+.flex-none {
+  flex: 0 0 auto;
+}
+
+.flex-nogrow {
+  flex: 0 1 auto;
+}
+
+.flex-grow {
+  flex: 1 1 100%;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flexAuto {
+  flex: 1 1 auto;
+}
+
+.flex-noshrink {
+  flex: 1 0 auto;
+}
+
+.flex-0 {
+  max-width: 0;
+  max-height: 100%;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.alignSelfStart {
+  align-self: flex-start;
+}
+
+.alignSelfEnd {
+  align-self: flex-end;
+}
+
+.alignSelfCenter {
+  align-self: center;
+}
+
+.alignSelfBaseline {
+  align-self: baseline;
+}
+
+.alignSelfStretch {
+  align-self: stretch;
+}
+
+.marginCenter {
+  margin: 0 auto;
+}
+
+.alignCenterStretch,
+.alignEndStretch,
+.align-spaceAroundStretch,
+.alignSpaceBetweenStretch,
+.alignStartStretch {
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.alignCenterStart,
+.alignEndStart,
+.alignSpaceAroundStart,
+.alignSpaceBetweenStart,
+.alignStartStart {
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.alignCenterCenter,
+.alignEndCenter,
+.alignSpaceAroundCenter,
+.alignSpaceBetweenCenter,
+.alignStartCenter {
+  align-items: center;
+  align-content: center;
+  max-width: 100%;
+}
+
+.alignCenterEnd,
+.alignEndEnd,
+.alignSpaceAroundEnd,
+.alignSpaceBetweenEnd,
+.alignStartEnd {
+  align-items: flex-end;
+  align-content: flex-end;
+}
+
+.align,
+.alignStart,
+.alignStartCenter,
+.alignStartEnd,
+.alignStartStart,
+.alignStartStretch {
+  justify-content: flex-start;
+}
+
+.alignCenter,
+.alignCenterCenter,
+.alignCenterEnd,
+.alignCenterStart,
+.alignCenterStretch {
+  justify-content: center;
+}
+
+.alignEnd,
+.alignEndCenter,
+.alignEndEnd,
+.alignEndStart,
+.alignEndStretch {
+  justify-content: flex-end;
+}
+
+.alignSpaceAround,
+.alignSpaceAroundCenter,
+.alignSpaceAroundEnd,
+.alignSpaceAroundStart,
+.align-spaceAroundStretch {
+  justify-content: space-around;
+}
+
+.alignSpaceBetween,
+.alignSpaceBetweenCenter,
+.alignSpaceBetweenEnd,
+.alignSpaceBetweenStart,
+.alignSpaceBetweenStretch {
+  justify-content: space-between;
+}
+
+@media (max-width: 599px) {
+  .xsColumn {
+    flex-direction: column;
+  }
+  .xsRow {
+    flex-direction: row;
+  }
+  .xsShow {
+    display: block;
+  }
+  .xsHide {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .gtXsColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .gtXsRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .gtXsShow {
+    display: block;
+  }
+  .gtXsHide {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  .smColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .smRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .smShow {
+    display: block;
+  }
+  .smHide {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) {
+  .gtSmColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .gtSmRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .gtSmShow {
+    display: block;
+  }
+  .gtSmHide {
+    display: none;
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .mdColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .mdRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .mdShow {
+    display: block;
+  }
+  .mdHide {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  .gtMdColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .gtMdRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .gtMdShow {
+    display: block;
+  }
+  .gtMdHide {
+    display: none;
+  }
+}
+
+@media (min-width: 1280px) and (max-width: 1919px) {
+  .lgColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .lgRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .lgShow {
+    display: block;
+  }
+  .lgHide {
+    display: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .gtLgColumn {
+    flex-direction: column;
+    display: flex;
+  }
+  .gtLgRow {
+    flex-direction: row;
+    display: flex;
+  }
+  .gtLgShow {
+    display: block;
+  }
+  .gtLgHide {
+    display: none;
+  }
+}

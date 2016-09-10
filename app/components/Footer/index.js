@@ -3,23 +3,10 @@ import FlatButton from 'material-ui/FlatButton';
 import { FormattedMessage } from 'react-intl';
 import { browserHistory } from 'react-router';
 import IconButton from 'material-ui/IconButton';
-import * as socialIcons from '../../common/SvgIcons/socialMediaIcons.js';
-import style from './styles.css';
 import logoImg from '../../common/images/logo.png';
 
-const styles = {
-  iconStyle: {
-    width: 46,
-    height: 46,
-  },
-  buttonStyle: {
-    color: 'rgba(255, 255, 255, 0.870588)',
-  },
-  viewBox: {
-    viewBox: '0 0 32 32',
-    color: '#FFF',
-  },
-};
+import style from './styles.css';
+import baseStyle from '../../common/Style/baseStyle.css';
 
 const Footer = ({ messages }) => {
   const changePath = (value) => {
@@ -42,7 +29,7 @@ const Footer = ({ messages }) => {
           messages.menu.map((item, index) =>
             <FlatButton
               key={index}
-              style={styles.buttonStyle}
+              className={style.buttonColor}
               label={<FormattedMessage {...item} />}
               onTouchTap={() => { changePath(item.path); }}
             />
@@ -51,16 +38,12 @@ const Footer = ({ messages }) => {
       </nav>
       <p><FormattedMessage {...messages.FooterCopyRight} /></p>
       <nav>
-        {
-          messages.socialIcons.map((item, index) =>
-            <IconButton
-              key={index}
-              tooltip={<FormattedMessage {...item} />}
-              style={styles.iconStyle}
-              children={React.createElement(socialIcons[item.icon], styles.viewBox)}
-            />
-          )
-        }
+        <IconButton tooltip="Facebook" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-facebook-1'].join(' ')}>&#xf09a;</i>} />
+        <IconButton tooltip="Twitter" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-twitter'].join(' ')}>&#xf099;</i>} />
+        <IconButton tooltip="Instagram" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-instagram'].join(' ')}>&#xf16d;</i>} />
+        <IconButton tooltip="LinkedIn" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-linkedin'].join(' ')}>&#xf0e1;</i>} />
+        <IconButton tooltip="Github" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-github-circled'].join(' ')}>&#xf09b;</i>} />
+        <IconButton tooltip="Mail" tooltipPosition="top-center" children={<i className={[baseStyle.fontIcon, style.socialIconStyle, 'icon-mail-alt'].join(' ')}>&#xf0e0;</i>} />
       </nav>
     </div>
   );
