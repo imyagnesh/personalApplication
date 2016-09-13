@@ -39,6 +39,11 @@
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.4);
 }
 
+.qualitySection {
+  background: #F8F8F8;
+  width: 100%
+}
+
 video::-webkit-media-controls {
   display: none !important;
 }

@@ -12,7 +12,6 @@ import messages from './messages';
 
 import baseStyle from '../../common/Style/baseStyle.css';
 
-import style from './styles.css';
 
 class Contact extends Component {
   constructor(props) {
@@ -33,10 +32,10 @@ class Contact extends Component {
     this.sendContact = this.sendContact.bind(this);
   }
 
-  sendContact(values) {
+  sendContact() {
     const promise = new Promise(resolve => {
       setTimeout(() => {  // simulate server latency
-        console.log(values);
+        // To Do:Add Send Contact Functionality
         resolve();
       }, 500);
     });

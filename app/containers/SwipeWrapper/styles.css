@@ -1,0 +1,17 @@
+.relative {
+  position: relative;
+}
+
+.button {
+  position: absolute!important;
+  top: 60px!important;
+  z-index: 2;
+}
+
+.next {
+  right: 0px;
+}
+
+.prev {
+  left: 0px;
+}

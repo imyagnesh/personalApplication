@@ -21,7 +21,6 @@ class App extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      headerBackground: '',
       open: false,
     };
     this.handleToggle = this.handleToggle.bind(this);
@@ -43,7 +42,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className={styles.wrapper}>
+        <div>
           <Helmet
             titleTemplate="%s - Yagnesh Modh"
             defaultTitle="Yagnesh Modh"
@@ -51,17 +50,18 @@ class App extends Component {
               { name: 'description', content: 'Personal Application' },
             ]}
           />
-          <FloatingActionButton className={[styles.scrollTopButton, this.state.scrollTopClass].join(' ')} mini secondary>
+          <FloatingActionButton className={[styles.scrollTopButton].join(' ')} mini secondary>
             <ContentUp />
           </FloatingActionButton>
           {this.props.loading && <LinearProgress mode="indeterminate" />}
-          <ScrollWrapper children={<Header
-            pathname={this.props.pathname}
-            toggleDrawer={this.handleToggle}
-            messages={messages}
-            UpdateBackground
-          />}>
-
+          <ScrollWrapper
+            children={<Header
+              pathname={this.props.pathname}
+              toggleDrawer={this.handleToggle}
+              messages={messages}
+              UpdateBackground
+            />}
+          >
           </ScrollWrapper>
           <Drawer
             drawerState={this.state.open}

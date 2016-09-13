@@ -15,6 +15,8 @@ const posterVideo = ({ PosterImg, PosterVideoWebm, PosterVideoMp4, headerText, s
         <h1 className={style.headerTitle}><FormattedMessage {...headerText} /></h1>
         <h2 className={style.headerSubTitle}><FormattedMessage {...subHeaderText} /></h2>
         <RaisedButton
+          style={{ height: '50px', minWidth: '150px' }}
+          labelStyle={{ lineHeight: '50px' }}
           onTouchTap={changePath}
           label={<FormattedMessage {...headerButtonText} />}
           secondary
