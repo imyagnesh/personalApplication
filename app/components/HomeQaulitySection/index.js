@@ -12,7 +12,7 @@ import SwipeWrapper from '../../containers/SwipeWrapper/index';
 import baseStyle from '../../common/Style/baseStyle.css';
 
 const qualitySection = (() =>
-  <SwipeWrapper>
+  <SwipeWrapper minWidth={300} navigation>
     <div className={[baseStyle.column, baseStyle.alignCenterCenter].join(' ')}>
       <IconButton>
         <ActionFavorite color={redA200} />

@@ -2,6 +2,8 @@ import React, { Component, PropTypes, Children } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import SwipeableViews from 'react-swipeable-views';
 import IconButton from 'material-ui/IconButton';
+import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import NavigationNext from 'material-ui/svg-icons/image/navigate-next';
 import NavigationBefore from 'material-ui/svg-icons/image/navigate-before';
 
@@ -16,6 +18,7 @@ class swipeWrapper extends Component {
     this.handleChangeIndex = this.handleChangeIndex.bind(this);
     this.handleSwipeNext = this.handleSwipeNext.bind(this);
     this.handleSwipePrev = this.handleSwipePrev.bind(this);
+    this.handleChangeTabs = this.handleChangeTabs.bind(this);
   }
 
   componentDidMount() {
@@ -51,22 +54,21 @@ class swipeWrapper extends Component {
       index: this.state.index > 0 ? this.state.index - 1 : 0,
     });
   }
-
+  handleChangeTabs(value) {
+    this.setState({
+      index: value,
+    });
+  }
   render() {
     const { children } = this.props;
     let container = [];
     const getLength = () => {
       const windowWidth = this.state.windowWidth;
-      if (windowWidth < 600) {
-        return 1;
+      const minWidth = this.props.minWidth;
+      if (windowWidth > minWidth) {
+        return Math.floor(windowWidth / minWidth);
       }
-      if (windowWidth > 600 && windowWidth < 960) {
-        return 2;
-      }
-      if (windowWidth > 960 && windowWidth < 1280) {
-        return 3;
-      }
-      return 4;
+      return 1;
     };
     const childrenToRender = Children.map(children, (child, index) => {
       container = [...container, child];
@@ -91,6 +93,24 @@ class swipeWrapper extends Component {
       return null;
     });
 
+
+    const tabsToRender = (() =>
+      <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ')}>
+        {
+          Children.map(children, (child, index) => {
+            if (this.state.index === (index)) {
+              return (
+                <RaisedButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} secondary />
+              );
+            }
+            return (
+              <FlatButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} />
+            );
+          })
+        }
+      </div>
+    );
+
     const navButton = () => {
       if (this.state.totalChild > 0) {
         return (
@@ -111,7 +131,8 @@ class swipeWrapper extends Component {
 
     return (
       <div className={styles.relative}>
-        {navButton()}
+        {this.props.navigation && navButton() }
+        {this.props.tabs && tabsToRender() }
         <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
           {childrenToRender}
         </SwipeableViews>
@@ -122,6 +143,9 @@ class swipeWrapper extends Component {
 
 swipeWrapper.propTypes = {
   children: PropTypes.array.isRequired,
+  minWidth: PropTypes.number.isRequired,
+  navigation: PropTypes.bool,
+  tabs: PropTypes.bool,
 };
 
 
