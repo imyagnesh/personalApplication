@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react';
+import React, { Component, PropTypes, Children } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import SwipeableViews from 'react-swipeable-views';
 import IconButton from 'material-ui/IconButton';
@@ -59,13 +59,14 @@ class swipeWrapper extends Component {
       const windowWidth = this.state.windowWidth;
       if (windowWidth < 600) {
         return 1;
-      } if (windowWidth > 600 && windowWidth < 960) {
-        return 2;
-      } if (windowWidth > 960 && windowWidth < 1280) {
-        return 3;
-      } else {
-        return 4;
       }
+      if (windowWidth > 600 && windowWidth < 960) {
+        return 2;
+      }
+      if (windowWidth > 960 && windowWidth < 1280) {
+        return 3;
+      }
+      return 4;
     };
     const childrenToRender = Children.map(children, (child, index) => {
       container = [...container, child];
@@ -109,7 +110,7 @@ class swipeWrapper extends Component {
     this.state.totalChild = (childrenToRender.length - 1);
 
     return (
-      <div className={styles.relative} ref="container">
+      <div className={styles.relative}>
         {navButton()}
         <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
           {childrenToRender}
@@ -118,6 +119,10 @@ class swipeWrapper extends Component {
     );
   }
 }
+
+swipeWrapper.propTypes = {
+  children: PropTypes.array.isRequired,
+};
 
 
 export default swipeWrapper;
