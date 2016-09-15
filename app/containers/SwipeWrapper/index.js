@@ -13,46 +13,39 @@ import styles from './styles.css';
 class swipeWrapper extends Component {
   constructor(props) {
     super(props);
-    this.state = { windowWidth: window.innerWidth, index: 0, totalChild: 0 };
+    this.state = { windowWidth: window.innerWidth, index: 0 };
+    this.handleSwipe = this.handleSwipe.bind(this);
     this.handleResize = this.handleResize.bind(this);
     this.handleChangeIndex = this.handleChangeIndex.bind(this);
-    this.handleSwipeNext = this.handleSwipeNext.bind(this);
-    this.handleSwipePrev = this.handleSwipePrev.bind(this);
     this.handleChangeTabs = this.handleChangeTabs.bind(this);
   }
-
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
   }
-
   shouldComponentUpdate(nextProps, nextState) {
     return shallowCompare(this, nextProps, nextState);
   }
-
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize);
   }
-
   handleResize() {
     this.setState({ windowWidth: window.innerWidth, index: 0 });
   }
-
   handleChangeIndex(index) {
     this.setState({
       index,
     });
   }
-
-  handleSwipeNext() {
-    this.setState({
-      index: this.state.index < this.state.totalChild ? this.state.index + 1 : this.state.totalChild,
-    });
-  }
-
-  handleSwipePrev() {
-    this.setState({
-      index: this.state.index > 0 ? this.state.index - 1 : 0,
-    });
+  handleSwipe(swipeDirection, totalChild) {
+    if (swipeDirection === 'prev') {
+      this.setState({
+        index: this.state.index > 0 ? this.state.index - 1 : 0,
+      });
+    } else {
+      this.setState({
+        index: this.state.index < (totalChild - 1) ? this.state.index + 1 : (totalChild - 1),
+      });
+    }
   }
   handleChangeTabs(value) {
     this.setState({
@@ -93,7 +86,6 @@ class swipeWrapper extends Component {
       return null;
     });
 
-
     const tabsToRender = (() =>
       <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ')}>
         {
@@ -112,13 +104,13 @@ class swipeWrapper extends Component {
     );
 
     const navButton = () => {
-      if (this.state.totalChild > 0) {
+      if (children.length > 0) {
         return (
           <div>
-            <IconButton onTouchTap={this.handleSwipePrev} className={[styles.button, styles.prev].join(' ')}>
+            <IconButton onTouchTap={() => this.handleSwipe('prev', children.length)} className={[styles.button, styles.prev].join(' ')}>
               <NavigationBefore />
             </IconButton>
-            <IconButton onTouchTap={this.handleSwipeNext} className={[styles.button, styles.next].join(' ')}>
+            <IconButton onTouchTap={() => this.handleSwipe('next', children.length)} className={[styles.button, styles.next].join(' ')}>
               <NavigationNext />
             </IconButton>
           </div>
@@ -126,9 +118,6 @@ class swipeWrapper extends Component {
       }
       return null;
     };
-
-    this.state.totalChild = (childrenToRender.length - 1);
-
     return (
       <div className={styles.relative}>
         {this.props.navigation && navButton() }
@@ -147,6 +136,4 @@ swipeWrapper.propTypes = {
   navigation: PropTypes.bool,
   tabs: PropTypes.bool,
 };
-
-
 export default swipeWrapper;

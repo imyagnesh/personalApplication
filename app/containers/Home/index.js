@@ -35,7 +35,7 @@ class Home extends Component {
         <SkillsSection />
         <ContactSection content="Is my skills suitable for your project?" buttonLabel="Hire me" />
         <PortfolioSection />
-        <ContactSection content="Contact me to know more about My work as full stack developer." buttonLabel="Contact Me" />
+        <ContactSection content="Want to know more about My work?" buttonLabel="Contact Me" />
         <BlogSection />
       </div>
     );

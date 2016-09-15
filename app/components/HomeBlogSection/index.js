@@ -11,7 +11,7 @@ const BlogSection = (() =>
       title="Latest Blog Posts"
     />
     <RedirectButton
-      label="Know More"
+      label="Read More"
       path="/blog"
     />
   </div>
