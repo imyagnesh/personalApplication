@@ -1,5 +1,6 @@
 'use strict';
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -19,6 +20,7 @@ module.exports = {
       inject: 'body',
       filename: 'index.html'
     }),
+    new ExtractTextPlugin('[name]-[hash].min.css'),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
@@ -57,7 +59,7 @@ module.exports = {
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,exclude: /node_modules/, loader: "file-loader" }, {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!cssnext'
+        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!cssnext')
       }]
   }
 };

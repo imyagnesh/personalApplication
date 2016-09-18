@@ -37,4 +37,8 @@ export default getMuiTheme({
     icon: {
       color: white,
     },
+    radioButton: {
+      checkedColor: redA200,
+      borderColor: redA200,
+    },
   });

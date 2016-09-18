@@ -67,21 +67,23 @@ class Contact extends Component {
         <ContactInformation
           messages={messages}
         />
-        <div className={[baseStyle.content, baseStyle.column, baseStyle.marginCenter].join(' ')}>
-          <Title
-            caption="you can contact me though socila media"
-            title="I am social"
-          />
-          <nav className={baseStyle.alignSelfCenter}>
-            <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-facebook-1'].join(' ')}>&#xf09a; </i>} />
-            <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-twitter'].join(' ')}>&#xf099; </i>} />
-            <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-instagram'].join(' ')}>&#xf16d; </i>} />
-            <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-linkedin'].join(' ')}>&#xf0e1; </i>} />
-            {
-              // <FloatingActionButton mini secondary style={{ margin: '10px' }} children={<i className={[baseStyle.fontIcon, 'icon-github-circled'].join(' ')}>&#xf09b;</i>} />
-            }
-            <FloatingActionButton mini secondary style={{ margin: '10px' }} children={<i className={[baseStyle.fontIcon, 'icon-mail-alt'].join(' ')}>&#xf0e0; </i>} />
-          </nav>
+        <div className={[baseStyle.content, baseStyle.row, baseStyle.marginCenter].join(' ')}>
+          <div className={[baseStyle.column].join(' ')}>
+            <Title
+              caption="you can also contact me though socila media"
+              title="I am social"
+            />
+            <nav className={baseStyle.alignSelfCenter}>
+              <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-facebook-1'].join(' ')}>&#xf09a; </i>} />
+              <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-twitter'].join(' ')}>&#xf099; </i>} />
+              <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-instagram'].join(' ')}>&#xf16d; </i>} />
+              <FloatingActionButton mini secondary style={{ margin: '8px' }} children={<i className={[baseStyle.fontIcon, 'icon-linkedin'].join(' ')}>&#xf0e1; </i>} />
+              {
+                // <FloatingActionButton mini secondary style={{ margin: '10px' }} children={<i className={[baseStyle.fontIcon, 'icon-github-circled'].join(' ')}>&#xf09b;</i>} />
+              }
+              <FloatingActionButton mini secondary style={{ margin: '10px' }} children={<i className={[baseStyle.fontIcon, 'icon-mail-alt'].join(' ')}>&#xf0e0; </i>} />
+            </nav>
+          </div>
         </div>
       </main>
     );

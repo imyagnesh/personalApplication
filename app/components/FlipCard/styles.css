@@ -1,0 +1,185 @@
+@keyframes sideOne {
+  0% {
+    transform: translateZ(-200px) rotateY(0deg) scale(1.4);
+  }
+  33% {
+    transform: translateZ(-100px) rotateY(0deg) scale(1.4);
+    offset: 0.15;
+  }
+  66% {
+    transform: translateZ(-100px) rotateY(180deg) scale(1.4);
+    offset: 0.65;
+  }
+  100% {
+    transform: translateZ(-200px) rotateY(180deg) scale(1.4);
+  }
+}
+
+@keyframes sideTwo {
+  0% {
+    transform: translateZ(-200px) rotateY(180deg) scale(1.4);
+  }
+  33% {
+    transform: translateZ(-100px) rotateY(180deg) scale(1.4);
+    offset: 0.15;
+  }
+  66% {
+    transform: translateZ(-100px) rotateY(360deg) scale(1.4);
+    offset: 0.65;
+  }
+  100% {
+    transform: translateZ(-200px) rotateY(360deg) scale(1.4);
+  }
+}
+
+@keyframes umbra {
+  0% {
+    opacity: 0.3;
+    transform: translateY(2px) rotateY(0deg);
+  }
+  33% {
+    opacity: 0.0;
+    transform: translateY(62px) rotateY(0deg);
+    offset: 0.15;
+  }
+  66% {
+    opacity: 0.0;
+    transform: translateY(62px) rotateY(180deg);
+    offset: 0.65;
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(2px) rotateY(180deg);
+  }
+}
+
+@keyframes penumbra {
+  0% {
+    opacity: 0.0;
+    transform: translateY(2px) rotateY(0deg);
+  }
+  33% {
+    opacity: 0.5;
+    transform: translateY(62px) rotateY(0deg);
+    offset: 0.15;
+  }
+  66% {
+    opacity: 0.5;
+    transform: translateY(62px) rotateY(180deg);
+    offset: 0.65;
+  }
+  100% {
+    opacity: 0.0;
+    transform: translateY(2px) rotateY(180deg);
+  }
+}
+
+.flipCard {
+  width: 260px;
+  height: 380px;
+  position: relative;
+  perspective: 500px;
+  will-change: transform;
+}
+
+.flipCard .front,
+.flipCard .back {
+  backface-visibility: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.flipCard button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  text-indent: -10000px;
+  /*display: none;*/
+}
+
+.flipCard .front {
+  background: #444;
+  color: #FFF;
+}
+
+.flipCard .front h1 {
+  font-size: 24px;
+}
+
+.flipCard .back {
+  background: url(../../common/coverVideo/cover.jpg) center center no-repeat;
+  color: #FFF;
+  transform: rotateY(180deg);
+}
+
+.sideOneAnimation {
+  animation-name: sideOne;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.sideTwoAnimation {
+  animation-name: sideTwo;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.umbraAnimation {
+  animation-name: umbra;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.penumbraAnimation {
+  animation-name: penumbra;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.flipCard .umbra,
+.flipCard .penumbra {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  backface-visibility: visible;
+}
+
+.flipCard .umbra {
+  width: 270px;
+  height: 390px;
+  top: -5px;
+  left: -5px;
+  background: url(../../common/images/umbra.svg) center center no-repeat;
+  transform: translateY(2px);
+  opacity: 0.3;
+}
+
+.flipCard .penumbra {
+  width: 330px;
+  height: 450px;
+  top: -35px;
+  left: -35px;
+  background: url(../../common/images/penumbra.svg) center center no-repeat;
+  transform: translateY(2px);
+  opacity: 0;
+}
