@@ -18,40 +18,38 @@ const style = {
 };
 
 const AboutSection = (() =>
-  <div className={[baseStyle.content, baseStyle.marginCenter].join(' ')}>
-    <div className={baseStyle.column}>
-      <Title
-        caption="Know Something"
-        title="Who am I"
-      />
-      <SwipeWrapper minWidth={window.innerWidth} tabs>
-        <div label="About Me">
-          <Avatar
-            size={100}
-            style={style.avatar}
-          >
-            Y
-          </Avatar>
-          <Paper style={style.paper} zDepth={1}>
-            <div>About Me</div>
-          </Paper>
-        </div>
-        <div label="My Vision">
-          <Paper style={style.paper} zDepth={1}>
-            <div>My Vision</div>
-          </Paper>
-        </div>
-        <div label="My Goal">
-          <Paper style={style.paper} zDepth={1}>
-            <div>My Goal</div>
-          </Paper>
-        </div>
-      </SwipeWrapper>
-      <RedirectButton
-        label="Know More"
-        path="/about"
-      />
-    </div>
+  <div className={baseStyle.wrapper}>
+    <Title
+      caption="Know Something"
+      title="Who am I"
+    />
+    <SwipeWrapper minWidth={window.innerWidth} tabs>
+      <div label="About Me">
+        <Avatar
+          size={100}
+          style={style.avatar}
+        >
+          Y
+        </Avatar>
+        <Paper style={style.paper} zDepth={1}>
+          <div>About Me</div>
+        </Paper>
+      </div>
+      <div label="My Vision">
+        <Paper style={style.paper} zDepth={1}>
+          <div>My Vision</div>
+        </Paper>
+      </div>
+      <div label="My Goal">
+        <Paper style={style.paper} zDepth={1}>
+          <div>My Goal</div>
+        </Paper>
+      </div>
+    </SwipeWrapper>
+    <RedirectButton
+      label="Know More"
+      path="/about"
+    />
   </div>
 );
 

@@ -17,25 +17,23 @@ const style = {
 
 
 const BlogSection = (() =>
-  <div className={[baseStyle.content, baseStyle.marginCenter].join(' ') }>
-    <div className={baseStyle.column}>
-      <Title
-        caption="Here are Some of"
-        title="Latest Blog Posts"
-        />
-      <SwipeWrapper minWidth={600} navigation>
-        <Paper style={style.paper} zDepth={1}>
+  <div className={baseStyle.wrapper}>
+    <Title
+      caption="Here are Some of"
+      title="Latest Blog Posts"
+    />
+    <SwipeWrapper minWidth={600} navigation>
+      <Paper style={style.paper} zDepth={1}>
         hello
-        </Paper>
-        <Paper style={style.paper} zDepth={1}>
+      </Paper>
+      <Paper style={style.paper} zDepth={1}>
         hello
-        </Paper>
-      </SwipeWrapper>
-      <RedirectButton
-        label="Read More"
-        path="/blog"
-        />
-    </div>
+      </Paper>
+    </SwipeWrapper>
+    <RedirectButton
+      label="Read More"
+      path="/blog"
+    />
   </div>
 );
 

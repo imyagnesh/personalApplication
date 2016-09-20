@@ -60,44 +60,40 @@ class swipeWrapper extends Component {
       const windowWidth = this.state.windowWidth;
       const minWidth = this.props.minWidth;
       if (windowWidth > minWidth) {
-        return Math.floor(windowWidth / minWidth);
+        return Math.min(Math.floor(windowWidth / minWidth), children.length);
       }
       return 1;
     };
     const childrenToRender = Children.map(children, (child, index) => {
       container = [...container, child];
-      if (container.length === getLength()) {
-        const divs = container;
-        container = [];
-        return (
-          <div className={[baseStyle.content, baseStyle.fullWidth].join(' ')}>
-            {divs}
-          </div>
-        );
+      if (container.length !== getLength() && children.length !== (index + 1)) {
+        return null;
       }
-      if ((index + 1) === children.length && container.length > 0) {
-        const divs = container;
-        container = [];
-        return (
-          <div className={[baseStyle.content, baseStyle.fullWidth].join(' ')}>
-            {divs}
-          </div>
-        );
+      if (children.length === (index + 1) && container.length < getLength()) {
+        for (let i = 0; i <= (getLength() - container.length); i++) {
+          container = [...container, React.DOM.div({ key: i })];
+        }
       }
-      return null;
+      const divs = container;
+      container = [];
+      return (
+        <div className={[baseStyle.content, baseStyle.fullWidth].join(' ') }>
+          {divs}
+        </div>
+      );
     });
 
     const tabsToRender = (() =>
-      <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ')}>
+      <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ') }>
         {
           Children.map(children, (child, index) => {
             if (this.state.index === (index)) {
               return (
-                <RaisedButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} secondary />
+                <RaisedButton onClick={() => this.handleChangeTabs(index) } labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} secondary />
               );
             }
             return (
-              <FlatButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} />
+              <FlatButton onClick={() => this.handleChangeTabs(index) } labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} />
             );
           })
         }
@@ -113,7 +109,7 @@ class swipeWrapper extends Component {
         valueSelected: this.state.index,
       };
       return (
-        <RadioButtonGroup name="swipeButton" onChange={this.hanldeRBChange} {...rbProps} className={[baseStyle.row, baseStyle.alignCenter, styles.margin10].join(' ')}>
+        <RadioButtonGroup name="swipeButton" onChange={this.hanldeRBChange} {...rbProps} className={[baseStyle.row, baseStyle.alignCenter, styles.margin10].join(' ') }>
           {childrenToRender.map(((child, index) =>
             <RadioButton key={index} value={index} style={{ width: 'auto' }} />
           )) }
@@ -122,7 +118,7 @@ class swipeWrapper extends Component {
     };
 
     return (
-      <div>
+      <div className={baseStyle.column}>
         {this.props.tabs && tabsToRender() }
         <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
           {childrenToRender}

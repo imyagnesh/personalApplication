@@ -108,6 +108,11 @@ h6 {
   letter-spacing: .02em;
 }
 
+.wrapper {
+  max-width: 1280px;
+  margin: 10px auto;
+}
+
 .content {
   display: flex;
   position: relative;

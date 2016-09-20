@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-// import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
+import coverImage from '../../common/coverVideo/cover.jpg';
 
+// import baseStyle from '../../common/Style/baseStyle.css';
 import styles from './styles.css';
 
 class FlipCard extends Component {
@@ -43,13 +46,36 @@ class FlipCard extends Component {
         <div className={this.state.umbraClass}></div>
         <div className={this.state.penumbraClass}></div>
         <div className={this.state.frontClass} tabIndex="-1">
-          <h1>Front</h1>
-          <button onClick={() => this.handleClick('front')}>Flip card</button>
+          <Card>
+            <CardHeader
+              title="URL Avatar"
+              />
+            <CardMedia>
+              <img src={coverImage} alt="Cover" />
+            </CardMedia>
+            <CardTitle title="Card title" subtitle="Card subtitle" />
+
+            <CardActions>
+              <FlatButton label="Action1" onTouchTap={() => this.handleClick('front') } />
+              <FlatButton label="Action2" onTouchTap={() => this.handleClick('front') } />
+            </CardActions>
+          </Card>
         </div>
 
         <div className={this.state.backClass} tabIndex="-1">
-          <h1>Back</h1>
-          <button onClick={() => this.handleClick('back')}>Flip card</button>
+          <Card>
+            <CardTitle title="Card title" subtitle="Card subtitle" />
+            <CardText>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Donec mattis pretium massa.Aliquam erat volutpat.Nulla facilisi.
+              Donec vulputate interdum sollicitudin.Nunc lacinia auctor quam sed pellentesque.
+              Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
+            </CardText>
+            <CardActions>
+              <FlatButton label="Action1" onTouchTap={() => this.handleClick('back') } />
+              <FlatButton label="Action2" onTouchTap={() => this.handleClick('back') } />
+            </CardActions>
+          </Card>
         </div>
       </div>
     );
