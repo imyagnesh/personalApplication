@@ -16,7 +16,6 @@ const PortfolioSection = (() =>
       <ProjectCard />
       <ProjectCard />
       <ProjectCard />
-      <ProjectCard />
     </SwipeWrapper>
     <RedirectButton
       label="Know More"

@@ -2,19 +2,8 @@ import React from 'react';
 import Title from '../Title/index';
 import RedirectButton from '../RedirectButton/index';
 import baseStyle from '../../common/Style/baseStyle.css';
-import Paper from 'material-ui/Paper';
 import SwipeWrapper from '../../containers/SwipeWrapper/index';
-
-const style = {
-  paper: {
-    height: 400,
-    margin: 10,
-    textAlign: 'center',
-    display: 'flex',
-    flex: 1,
-  },
-};
-
+import BlogCard from '../BlogCard/index';
 
 const BlogSection = (() =>
   <div className={baseStyle.wrapper}>
@@ -22,13 +11,10 @@ const BlogSection = (() =>
       caption="Here are Some of"
       title="Latest Blog Posts"
     />
-    <SwipeWrapper minWidth={600} navigation>
-      <Paper style={style.paper} zDepth={1}>
-        hello
-      </Paper>
-      <Paper style={style.paper} zDepth={1}>
-        hello
-      </Paper>
+    <SwipeWrapper minWidth={300} navigation>
+      <BlogCard />
+      <BlogCard />
+      <BlogCard />
     </SwipeWrapper>
     <RedirectButton
       label="Read More"

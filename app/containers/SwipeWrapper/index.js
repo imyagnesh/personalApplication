@@ -77,23 +77,23 @@ class swipeWrapper extends Component {
       const divs = container;
       container = [];
       return (
-        <div className={[baseStyle.content, baseStyle.fullWidth].join(' ') }>
+        <div className={[baseStyle.content, baseStyle.fullWidth].join(' ')}>
           {divs}
         </div>
       );
     });
 
     const tabsToRender = (() =>
-      <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ') }>
+      <div className={[baseStyle.row, baseStyle.alignCenterCenter].join(' ')}>
         {
           Children.map(children, (child, index) => {
             if (this.state.index === (index)) {
               return (
-                <RaisedButton onClick={() => this.handleChangeTabs(index) } labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} secondary />
+                <RaisedButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} secondary />
               );
             }
             return (
-              <FlatButton onClick={() => this.handleChangeTabs(index) } labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} />
+              <FlatButton onClick={() => this.handleChangeTabs(index)} labelStyle={{ paddingLeft: '14px', paddingRight: '14px' }} label={child.props.label} />
             );
           })
         }
@@ -109,7 +109,7 @@ class swipeWrapper extends Component {
         valueSelected: this.state.index,
       };
       return (
-        <RadioButtonGroup name="swipeButton" onChange={this.hanldeRBChange} {...rbProps} className={[baseStyle.row, baseStyle.alignCenter, styles.margin10].join(' ') }>
+        <RadioButtonGroup name="swipeButton" onChange={this.hanldeRBChange} {...rbProps} className={[baseStyle.row, baseStyle.alignCenter, styles.margin10].join(' ')}>
           {childrenToRender.map(((child, index) =>
             <RadioButton key={index} value={index} style={{ width: 'auto' }} />
           )) }
@@ -118,7 +118,7 @@ class swipeWrapper extends Component {
     };
 
     return (
-      <div className={baseStyle.column}>
+      <div className={styles.marginTB25}>
         {this.props.tabs && tabsToRender() }
         <SwipeableViews index={this.state.index} onChangeIndex={this.handleChangeIndex}>
           {childrenToRender}
