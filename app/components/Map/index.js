@@ -24,7 +24,7 @@ const SimpleMap = ({ markers, containerElementProps, languageId }) => (
     <ScriptjsLoader
       hostname={'maps.googleapis.com'}
       pathname={'/maps/api/js'}
-      query={{ v: '3.exp', libraries: 'geometry,drawing,places', language: languageId }}
+      query={{ key: 'AIzaSyD1uEoF_AkvjzE2OhF6U0f0bHxsgGswx-4', v: '3.25', libraries: 'geometry,drawing,places', language: languageId }}
       loadingElement={
         <div {...containerElementProps} style={{ height: '100%' }}>
           <CircularProgress mode="indeterminate" color="white" size={0.5} />
