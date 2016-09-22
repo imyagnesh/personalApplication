@@ -108,6 +108,7 @@
     "nock": "^8.0.0",
     "normalize.css": "^4.2.0",
     "npm-run-all": "^3.0.0",
+    "offline-plugin": "^3.4.2",
     "open": "^0.0.5",
     "postcss-loader": "^0.10.1",
     "react-addons-test-utils": "^15.3.1",

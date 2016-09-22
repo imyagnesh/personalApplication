@@ -7,6 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 var WebpackMd5Hash = require('webpack-md5-hash');
 var CompressionPlugin = require("compression-webpack-plugin");
+const OfflinePlugin = require('offline-plugin');
 
 module.exports = {
   entry: [
@@ -59,7 +60,29 @@ module.exports = {
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8
-    })
+    }),
+    new OfflinePlugin({
+      relativePaths: false,
+      publicPath: '/',
+
+      // No need to cache .htaccess. See http://mxs.is/googmp,
+      // this is applied before any match in `caches` section
+      excludes: ['.htaccess'],
+
+      caches: {
+        main: [':rest:'],
+
+        // All chunks marked as `additional`, loaded after main section
+        // and do not prevent SW to install. Change to `optional` if
+        // do not want them to be preloaded at all (cached only when first loaded)
+        additional: ['*.chunk.js'],
+      },
+
+      // Removes warning for about `additional` section usage
+      safeToUseOptionalCaches: true,
+
+      AppCache: false,
+    }),
   ],
   module: {
     loaders: [{
