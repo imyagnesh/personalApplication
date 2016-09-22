@@ -1,5 +1,5 @@
 {
-  "name": "personal_application",
+  "name": "personal-application",
   "version": "0.1.0",
   "description": "A Personal application created using react js and node js",
   "main": "server.js",

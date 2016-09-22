@@ -46,6 +46,9 @@ if (isDeveloping) {
   });
 }
 
-http.listen(port, function(){
-  console.log('listening on', http.address().port);
+app.listen(port, function onStart(err) {
+  if (err) {
+    console.log(err);
+  }
+  console.log('listening on', port);
 });
