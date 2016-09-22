@@ -31,8 +31,11 @@
   "dependencies": {
     "babel-polyfill": "^6.13.0",
     "classnames": "^2.2.5",
+    "compression": "^1.6.2",
     "express": "^4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "history": "^3.0.0",
+    "html-webpack-plugin": "^2.22.0",
     "intl": "^1.2.4",
     "ip": "^1.1.3",
     "material-ui": "^0.15.4",
@@ -62,9 +65,7 @@
     "redux-undo": "^0.6.1",
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.12.2",
-    "extract-text-webpack-plugin": "^1.0.1",
-    "html-webpack-plugin": "^2.22.0"
+    "webpack-hot-middleware": "^2.12.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -83,7 +84,6 @@
     "chunk-manifest-webpack-plugin": "^0.1.0",
     "colors": "^1.1.2",
     "compression": "^1.6.2",
-    
     "connect-history-api-fallback": "^1.3.0",
     "cross-env": "^2.0.0",
     "css-loader": "^0.23.1",
@@ -98,9 +98,7 @@
     "eventsource-polyfill": "^0.9.6",
     "expect": "^1.20.2",
     "express": "^4.14.0",
-    
     "file-loader": "^0.9.0",
-    
     "image-webpack-loader": "^2.0.0",
     "jscs": "^3.0.7",
     "jsdom": "^9.4.2",
@@ -124,10 +122,8 @@
     "rimraf": "^2.5.4",
     "sinon": "^1.17.5",
     "sinon-chai": "^2.8.0",
-    
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack-manifest-plugin": "^1.0.1"
-    
   }
 }
