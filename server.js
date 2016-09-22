@@ -46,6 +46,6 @@ if (isDeveloping) {
   });
 }
 
-app.listen(port, function() {
-    console.log('Our app is running on http://localhost:' + port);
+http.listen(port, function(){
+  console.log('listening on', http.address().port);
 });
