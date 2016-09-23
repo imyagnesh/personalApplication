@@ -22,6 +22,8 @@ import LanguageProvider from './containers/LanguageProvider';
 import { getRoutes } from './routes';
 import { translationMessages } from './i18n';
 import { loadLanguages } from './actions/localeAction';
+
+import intl from 'intl';
 injectTapEventPlugin();
 
 const state = {};
@@ -53,7 +55,7 @@ if (module.hot) {
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
   (new Promise((resolve) => {
-    resolve(System.import('intl'));
+    resolve(intl);
   }))
     .then(() => Promise.all([
       System.import('intl/locale-data/jsonp/en.js'),
