@@ -7,6 +7,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var StatsPlugin = require('stats-webpack-plugin');
 var WebpackMd5Hash = require('webpack-md5-hash');
 var CompressionPlugin = require("compression-webpack-plugin");
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 // const OfflinePlugin = require('offline-plugin');
 
 module.exports = {
@@ -85,39 +87,48 @@ module.exports = {
     // }),
   ],
   module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        "presets": ["es2015", "stage-2", "react"]
-      }
-    },
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          "presets": ["es2015", "stage-2", "react"]
+        }
+      },
       {
         test: /\.json?$/,
         exclude: /node_modules/,
         loader: 'json'
       },
       {
-        test: /.*\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/,
         exclude: /node_modules/,
         loaders: [
           'file?hash=sha512&digest=hex&name=[hash].[ext]',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          'image-webpack?{progressive:true, optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}}',
         ]
       }, {
         test: /\.(webm|mp4)$/,
         exclude: /node_modules/,
-        loader: 'file'
+        loader: 'url-loader?limit=10000',
       },
-      {test: /\.ico$/,exclude: /node_modules/, loader: 'file?name=[name].[ext]'},
-      { test: /\.eot(\?v=\d+.\d+.\d+)?$/,exclude: /node_modules/, loader: 'file' },
-      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,exclude: /node_modules/, loader: "url?limit=10000&mimetype=application/font-woff" },
-      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,exclude: /node_modules/, loader: 'url?limit=10000&mimetype=application/octet-stream' },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader',
+      },
+      {
+        test: /\.(ico|icns)$/,
+        exclude: /node_modules/,
+        loader: "url?limit=8192"
+      },
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!cssnext')
+        loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
       }]
+  },
+  postcss: function () {
+    return [precss, autoprefixer];
   }
 };
