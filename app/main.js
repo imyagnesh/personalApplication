@@ -1,4 +1,12 @@
+// Needed for redux-saga es6 generator support
 import 'babel-polyfill';
+
+/* eslint-disable import/no-unresolved */
+// Load the favicon, the manifest.json file and the .htaccess file
+import 'file?name=[name].[ext]!./favicon.ico';
+import '!file?name=[name].[ext]!./manifest.json';
+import 'file?name=[name].[ext]!./.htaccess';
+/* eslint-enable import/no-unresolved */
 import React from 'react';
 import { render } from 'react-dom';
 import { configureStore } from './store/configureStore';
@@ -10,7 +18,6 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import muiTheme from './muiTheme';
 import LanguageProvider from './containers/LanguageProvider';
 import { getRoutes } from './routes';
 import { translationMessages } from './i18n';

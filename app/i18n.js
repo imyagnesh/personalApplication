@@ -14,7 +14,7 @@ addLocaleData(deLocaleData);
 
 export const appLocales = [
   'en',
-  'de'
+  'de',
 ];
 
 import enTranslationMessages from './translations/en.json';
@@ -31,5 +31,5 @@ export const formatTranslationMessages = (messages) => {
 
 export const translationMessages = {
   en: formatTranslationMessages(enTranslationMessages),
-  de: formatTranslationMessages(deTranslationMessages)
+  de: formatTranslationMessages(deTranslationMessages),
 };
