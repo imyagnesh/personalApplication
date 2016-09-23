@@ -2,8 +2,6 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
 
 module.exports = {
   devtool: 'eval-source-map',
@@ -68,8 +66,5 @@ module.exports = {
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract('style', 'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
       }]
-  },
-  postcss: function () {
-    return [precss, autoprefixer];
   }
 };
