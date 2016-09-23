@@ -28,7 +28,7 @@
   RewriteRule ^(.*) https://%{HTTP_HOST}/$1 [R,L]
 
   # If we get to here, it means we are on https://
-  
+
   # If the file with the specified name in the browser doesn't exist
   RewriteCond %{REQUEST_FILENAME} !-f
 

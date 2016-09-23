@@ -19,6 +19,10 @@
     "jquery": true,
     "mocha": true
   },
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
   "rules": {
     "arrow-body-style": [
       2,
@@ -52,7 +56,16 @@
     "newline-per-chained-call": 0,
     "no-console": 1,
     "no-use-before-define": 0,
-    "no-shadow": [2, { "builtinGlobals": false, "hoist": "functions", "allow": ["css"] }],
+    "no-shadow": [
+      2,
+      {
+        "builtinGlobals": false,
+        "hoist": "functions",
+        "allow": [
+          "css"
+        ]
+      }
+    ],
     "prefer-template": 2,
     "react/jsx-filename-extension": 0,
     "react/jsx-no-target-blank": 0,
