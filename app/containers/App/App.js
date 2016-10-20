@@ -1,15 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import { connect } from 'react-redux';
-import Helmet from 'react-helmet';
 import Header from '../../components/Header/index';
 import Footer from '../../components/Footer/index';
 import Drawer from '../../components/Drawer/index';
 import messages from './messages';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentUp from 'material-ui/svg-icons/navigation/arrow-upward';
-import muiTheme from '../../muiTheme.js';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LinearProgress from 'material-ui/LinearProgress';
 import ScrollWrapper from '../ScrollWrapper/index';
 
@@ -32,48 +29,39 @@ class App extends Component {
   }
 
   onDrawerRequestChange(open) {
-    this.setState({ open });
+    this.setState({
+      open,
+    });
   }
 
   handleToggle() {
-    this.setState({ open: !this.state.open });
+    this.setState({
+      open: !this.state.open,
+    });
   }
 
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
-        <div>
-          <Helmet
-            titleTemplate="%s - Yagnesh Modh"
-            defaultTitle="Yagnesh Modh"
-            meta={[
-              { name: 'description', content: 'Personal Application' },
-            ]}
-          />
-          <FloatingActionButton className={[styles.scrollTopButton].join(' ')} mini secondary>
-            <ContentUp />
-          </FloatingActionButton>
-          {this.props.loading && <LinearProgress mode="indeterminate" />}
-          <ScrollWrapper
-            children={<Header
-              pathname={this.props.pathname}
-              toggleDrawer={this.handleToggle}
-              messages={messages}
-              UpdateBackground
-            />}
-          >
-          </ScrollWrapper>
-          <Drawer
-            drawerState={this.state.open}
-            toggleDrawer={this.handleToggle}
-            onDrawerRequestChange={this.onDrawerRequestChange}
-            messages={messages}
-          />
-          {this.props.children}
-          <Footer messages={messages} />
-        </div>
-      </MuiThemeProvider>
-    );
+      <div>
+        <FloatingActionButton className={[styles.scrollTopButton].join(' ')} mini secondary>
+          <ContentUp />
+        </FloatingActionButton>
+        {this.props.loading && <LinearProgress mode="indeterminate" />}
+        <ScrollWrapper children={<Header
+                                   pathname={this.props.pathname}
+                                   toggleDrawer={this.handleToggle}
+                                   messages={messages}
+                                   UpdateBackground />
+                                 } />
+        <Drawer
+          drawerState={this.state.open}
+          toggleDrawer={this.handleToggle}
+          onDrawerRequestChange={this.onDrawerRequestChange}
+          messages={messages} />
+        {this.props.children}
+        <Footer messages={messages} />
+      </div>
+      );
   }
 }
 

@@ -7,6 +7,9 @@ import resumePage from './containers/Resume/index';
 import portfolioPage from './containers/Portfolio/index';
 import blogPage from './containers/Blog/index';
 import contactPage from './containers/Contact/index';
+import AdminPage from './containers/Admin/index';
+import LoginPage from './containers/Login/index';
+import Main from './containers/Main/index';
 
 export function getRoutes() {
   // function loadCourse(nextState) {
@@ -24,14 +27,18 @@ export function getRoutes() {
   // }
 
   return (
-    <Route path="/" component={App}>
-      <IndexRoute component={homePage} />
-      <Route path="about" component={aboutMePage} />
-      <Route path="resume" component={resumePage} />
-      <Route path="portfolio" component={portfolioPage} />
-      <Route path="blog" component={blogPage} />
-      <Route path="contact" component={contactPage} />
+    <Route component={Main}>
+      <Route path="/admin" component={AdminPage}>
+        <IndexRoute component={LoginPage} />
+      </Route>
+      <Route path="/" component={App}>
+        <IndexRoute component={homePage} />
+        <Route path="about" component={aboutMePage} />
+        <Route path="resume" component={resumePage} />
+        <Route path="portfolio" component={portfolioPage} />
+        <Route path="blog" component={blogPage} />
+        <Route path="contact" component={contactPage} />
+      </Route>
     </Route>
-  );
+    );
 }
-

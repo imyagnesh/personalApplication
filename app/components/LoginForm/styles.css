@@ -1,0 +1,25 @@
+.wrapper {
+  flex: 0 1 40%;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.sendButton {
+  align-self: center;
+  margin: 1em;
+}
+
+.header {
+  padding: 12px;
+  text-align: center;
+}
+
+.subHeader {
+  padding: 6px;
+  text-align: center;
+}
+

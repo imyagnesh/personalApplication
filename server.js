@@ -6,11 +6,24 @@ const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const webpackConfig = require('./webpack.config.js');
+
 const compression = require('compression')
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
+const ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 const app = express();
+
+const bodyParser = require('body-parser');
+// [SH] Bring in the data model
+require('./server/db');
+// [SH] Bring in the Passport config after model is defined
+require('./server/passport');
+var routes = require('./server/index');
+
+app.use(bodyParser.json());
+
+app.use('/api', routes);
 
 if (isDeveloping) {
   const compiler = webpack(webpackConfig);
@@ -40,15 +53,17 @@ if (isDeveloping) {
   });
 } else {
   app.use(compression())
-  app.use(express.static(__dirname + '/dist', { maxAge: 86400000 }));
+  app.use(express.static(__dirname + '/dist', {
+    maxAge: 86400000
+  }));
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }
 
-app.listen(port, function onStart(err) {
+app.listen(port, ip, function onStart(err) {
   if (err) {
     console.log(err);
   }
-  console.log('listening on', port);
+  console.log('Server running on http://%s:%s', ip, port);
 });

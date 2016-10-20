@@ -5,6 +5,7 @@ import { authors } from './authorReducer';
 import { course } from './courseReducer';
 import { locale } from './localeReducer';
 import { languages } from './languageReducer';
+import { instaImages, tweets } from './aboutReducer';
 import { ajaxCallsInProgress } from './ajaxStatusReducer';
 import { reducer as reduxFormReducer } from 'redux-form';
 
@@ -15,6 +16,8 @@ const rootReducer = combineReducers({
   ajaxCallsInProgress,
   locale,
   languages,
+  instaImages,
+  tweets,
   form: reduxFormReducer, // mounted under "form"
   routing: routerReducer,
 });
