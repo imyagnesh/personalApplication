@@ -2,11 +2,6 @@
 
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
-const webpackConfig = require('./webpack.config.js');
-
 const compression = require('compression')
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -26,6 +21,10 @@ app.use(bodyParser.json());
 app.use('/api', routes);
 
 if (isDeveloping) {
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackConfig = require('./webpack.config.js');
   const compiler = webpack(webpackConfig);
   const middleware = webpackDevMiddleware(compiler, {
     publicPath: webpackConfig.output.publicPath,
