@@ -90,6 +90,10 @@
               {
                   "name": "NPM_MIRROR",
                   "value": "${NPM_MIRROR}"
+              },
+              {
+                  "name": "NODE_ENV",
+                  "value": "production"
               }
             ]
           }
