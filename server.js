@@ -11,14 +11,14 @@ const app = express();
 
 const bodyParser = require('body-parser');
 // [SH] Bring in the data model
-// require('./server/db');
+require('./server/db');
 // // [SH] Bring in the Passport config after model is defined
-// require('./server/passport');
-// var routes = require('./server/index');
+require('./server/passport');
+var routes = require('./server/index');
 
 app.use(bodyParser.json());
 
-// app.use('/api', routes);
+app.use('/api', routes);
 
 if (isDeveloping) {
   const webpack = require('webpack');

@@ -1,26 +1,27 @@
 const mongoose = require('mongoose');
 
-const mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL || 'mongodb://localhost/personal_app';
+let mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL || 'mongodb://localhost/personal_app';
+// let mongoURLLabel = '';
 
 
-// if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
-//   const mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
-//   const mongoHost = process.env[`${mongoServiceName}_SERVICE_HOST`];
-//   const mongoPort = process.env[`${mongoServiceName}_SERVICE_PORT`];
-//   const mongoDatabase = process.env[`${mongoServiceName}_DATABASE`];
-//   const mongoPassword = process.env[`${mongoServiceName}_PASSWORD`];
-//   const mongoUser = process.env[`${mongoServiceName}_USER`];
+if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
+  const mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
+  const mongoHost = process.env[`${mongoServiceName}_SERVICE_HOST`];
+  const mongoPort = process.env[`${mongoServiceName}_SERVICE_PORT`];
+  const mongoDatabase = process.env[`${mongoServiceName}_DATABASE`];
+  const mongoPassword = process.env[`${mongoServiceName}_PASSWORD`];
+  const mongoUser = process.env[`${mongoServiceName}_USER`];
 
-//   if (mongoHost && mongoPort && mongoDatabase) {
-//     mongoURLLabel = mongoURL = 'mongodb://';
-//     if (mongoUser && mongoPassword) {
-//       mongoURL += `${mongoUser}:${mongoPassword}@`;
-//     }
-//     // Provide UI label that excludes user id and pw
-//     mongoURLLabel += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
-//     mongoURL += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
-//   }
-// }
+  if (mongoHost && mongoPort && mongoDatabase) {
+    // mongoURLLabel = mongoURL = 'mongodb://';
+    if (mongoUser && mongoPassword) {
+      mongoURL += `${mongoUser}:${mongoPassword}@`;
+    }
+    // Provide UI label that excludes user id and pw
+    // mongoURLLabel += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
+    mongoURL += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
+  }
+}
 
 // let dbURI = 'mongodb://localhost/personal_app';
 // if (process.env.NODE_ENV === 'production') {
