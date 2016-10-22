@@ -5,21 +5,21 @@ const path = require('path');
 const express = require('express');
 const compression = require('compression')
 
-const isDeveloping = process.env.DEV_MODE !== 'production';
+const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080;
 const ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 const app = express();
 
 const bodyParser = require('body-parser');
 // [SH] Bring in the data model
-// require('./server/db');
+require('./server/db');
 // // [SH] Bring in the Passport config after model is defined
-// require('./server/passport');
-// var routes = require('./server/index');
+require('./server/passport');
+var routes = require('./server/index');
 
 app.use(bodyParser.json());
 
-// app.use('/api', routes);
+app.use('/api', routes);
 
 if (isDeveloping) {
   const webpack = require('webpack');
