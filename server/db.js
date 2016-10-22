@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
+let mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
 // let mongoURLLabel = '';
 
 
