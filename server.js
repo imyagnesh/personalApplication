@@ -18,7 +18,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
-app.use('/api', routes);
+// app.use('/api', routes);
 
 if (isDeveloping) {
   const webpack = require('webpack');
