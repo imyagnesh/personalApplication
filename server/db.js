@@ -13,7 +13,7 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   const mongoUser = process.env[`${mongoServiceName}_USER`];
 
   if (mongoHost && mongoPort && mongoDatabase) {
-    // mongoURLLabel = mongoURL = 'mongodb://';
+    mongoURL = 'mongodb://';
     if (mongoUser && mongoPassword) {
       mongoURL += `${mongoUser}:${mongoPassword}@`;
     }
