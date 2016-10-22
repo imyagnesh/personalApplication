@@ -5,7 +5,7 @@ const path = require('path');
 const express = require('express');
 const compression = require('compression')
 
-// const isDeveloping = process.env.DEV_MODE !== 'production';
+const isDeveloping = process.env.DEV_MODE !== 'production';
 const port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 3000;
 const ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 const app = express();
@@ -21,7 +21,7 @@ app.use(bodyParser.json());
 
 app.use('/api', routes);
 
-if (process.env.DEV_MODE) {
+if (isDeveloping) {
   const webpack = require('webpack');
   const webpackDevMiddleware = require('webpack-dev-middleware');
   const webpackHotMiddleware = require('webpack-hot-middleware');
