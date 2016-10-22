@@ -72,7 +72,12 @@
     "redux-form": "^6.0.0-rc.3",
     "redux-thunk": "2.1.0",
     "redux-undo": "^0.6.1",
-    "twitter": "^1.4.0"
+    "twitter": "^1.4.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.12.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "html-webpack-plugin": "^2.22.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.1",
@@ -96,7 +101,6 @@
     "css-loader": "^0.23.1",
     "enzyme": "^2.4.1",
     "eslint": "^3.3.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "eslint-config-airbnb": "^10.0.1",
     "eslint-plugin-import": "^1.14.0",
     "eslint-plugin-jsx-a11y": "^2.1.0",
@@ -106,7 +110,6 @@
     "expect": "^1.20.2",
     "express": "^4.14.0",
     "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.22.0",
     "image-webpack-loader": "^2.0.0",
     "jscs": "^3.0.7",
     "jsdom": "^9.4.2",
@@ -134,9 +137,6 @@
     "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.2",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-hot-middleware": "^2.12.2",
     "webpack-manifest-plugin": "^1.0.1"
   }
 }
