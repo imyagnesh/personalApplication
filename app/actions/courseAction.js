@@ -1,5 +1,5 @@
-import * as types from './actionTypes';
-import {beginAjaxCall} from './ajaxStatusAction';
+import * as types from '../constants';
+import { beginAjaxCall } from './ajaxStatusAction';
 import courseApi from './../api/mockCourseApi';
 
 export function loadCoursesSuccess(courses) {

@@ -1,7 +1,7 @@
 class SocialMediaApi {
   static getInstaImages() {
     return new Promise((resolve, reject) => {
-      fetch('/api/instaImages')
+      fetch('/publicApi/instaImages')
         .then(response => response.json())
         .then(json => resolve(Object.assign([], json)))
         .catch(err => reject(Object.assign([], err)));
@@ -10,7 +10,7 @@ class SocialMediaApi {
 
   static getTweets() {
     return new Promise((resolve, reject) => {
-      fetch('/api/tweets')
+      fetch('/publicApi/tweets')
         .then(response => response.json())
         .then(json => resolve(Object.assign([], json)))
         .catch(err => reject(Object.assign([], err)));

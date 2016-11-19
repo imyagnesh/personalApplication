@@ -48,20 +48,22 @@ class App extends Component {
         </FloatingActionButton>
         {this.props.loading && <LinearProgress mode="indeterminate" />}
         <ScrollWrapper children={<Header
-                                   pathname={this.props.pathname}
-                                   toggleDrawer={this.handleToggle}
-                                   messages={messages}
-                                   UpdateBackground />
-                                 } />
+          pathname={this.props.pathname}
+          toggleDrawer={this.handleToggle}
+          messages={messages}
+          UpdateBackground
+        />
+        } />
         <Drawer
           drawerState={this.state.open}
           toggleDrawer={this.handleToggle}
           onDrawerRequestChange={this.onDrawerRequestChange}
-          messages={messages} />
+          messages={messages}
+        />
         {this.props.children}
         <Footer messages={messages} />
       </div>
-      );
+    );
   }
 }
 

@@ -1,10 +1,6 @@
-'use strict';
-
 const mongoose = require('mongoose');
 
 let mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL;
-// let mongoURLLabel = '';
-
 
 if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
   const mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase();
@@ -23,13 +19,15 @@ if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
     // mongoURLLabel += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
     mongoURL += `${mongoHost}:${mongoPort}/${mongoDatabase}`;
   }
+} else if (mongoURL == null && !process.env.DATABASE_SERVICE_NAME) {
+  mongoURL = 'mongodb://localhost/personal_app';
 }
 
 // let dbURI = 'mongodb://localhost/personal_app';
 // if (process.env.NODE_ENV === 'production') {
 //   dbURI = process.env.MONGOLAB_URI;
 // }
-
+mongoose.Promise = global.Promise;
 mongoose.connect(mongoURL);
 
 // CONNECTION EVENTS
@@ -70,5 +68,4 @@ process.on('SIGTERM', () => {
   });
 });
 
-// require('./models/blog');
-require('./models/users');
+require('./user');

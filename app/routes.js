@@ -9,6 +9,8 @@ import blogPage from './containers/Blog/index';
 import contactPage from './containers/Contact/index';
 import AdminPage from './containers/Admin/index';
 import LoginPage from './containers/Login/index';
+import RegistrationPage from './containers/Register/index';
+import DashboardPage from './containers/Dashboard/index';
 import Main from './containers/Main/index';
 
 export function getRoutes() {
@@ -30,6 +32,8 @@ export function getRoutes() {
     <Route component={Main}>
       <Route path="/admin" component={AdminPage}>
         <IndexRoute component={LoginPage} />
+        <Route path="register" component={RegistrationPage} />
+        <Route path="dashboard" component={DashboardPage} />
       </Route>
       <Route path="/" component={App}>
         <IndexRoute component={homePage} />

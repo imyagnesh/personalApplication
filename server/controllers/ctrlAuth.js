@@ -1,72 +1,97 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
+import { sendJSONresponse, validateSignupForm, validateLoginForm } from '../utils';
 
-const sendJSONresponse = (res, status, content) => {
-  res.status(status);
-  res.json(content);
-};
-
-module.exports.register = (req, res) => {
-  if (!req.body.name || !req.body.userName || !req.body.password || !req.body.role) {
-    sendJSONresponse(res, 400, {
-      message: 'All fields required',
+module.exports.register = (req, res, next) => {
+  const validationResult = validateSignupForm(req.body);
+  if (!validationResult.success) {
+    return res.status(400).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors,
     });
-    return;
   }
 
-  const user = new User();
 
-  user.name = req.body.name;
-  user.userName = req.body.userName;
-  user.setPassword(req.body.password);
-  user.role = req.body.role;
-
-  user.save((err) => {
+  return passport.authenticate('local-signup', (err) => {
     if (err) {
-      res
-        .status(404)
-        .json(err);
-      return;
+      if (err.name === 'MongoError' && err.code === 11000) {
+        // the 11000 Mongo code is for a duplication email error
+        // the 409 HTTP status code is for conflict error
+        return res.status(409).json({
+          success: false,
+          message: 'Check the form for errors.',
+          errors: {
+            email: 'This email is already taken.',
+          },
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: 'Could not process the form.',
+      });
     }
-    const token = user.generateJwt();
-    res.status(200);
-    res.json({
+
+    return res.status(200).json({
+      success: true,
+      message: 'You have successfully signed up! Now you should be able to log in.',
+    });
+  })(req, res, next);
+};
+
+module.exports.login = (req, res, next) => {
+  const validationResult = validateLoginForm(req.body);
+  if (!validationResult.success) {
+    return res.status(400).json({
+      success: false,
+      message: validationResult.message,
+      errors: validationResult.errors,
+    });
+  }
+
+
+  return passport.authenticate('local-login', (err, token) => {
+    if (err) {
+      if (err.name === 'IncorrectCredentialsError') {
+        return res.status(400).json({
+          success: false,
+          message: err.message,
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: 'Could not process the form.',
+      });
+    }
+
+
+    return res.json({
+      success: true,
+      message: 'You have successfully logged in!',
       token,
     });
-  });
+  })(req, res, next);
 };
 
-module.exports.login = (req, res) => {
-  if (!req.body.userName || !req.body.password) {
+module.exports.isUserUnique = (req, res) => {
+  if (!req.params.email) {
     sendJSONresponse(res, 400, {
-      message: 'All fields required',
+      message: 'email required',
     });
     return;
   }
 
-  passport
-    .authenticate('local', (err, user, info) => {
-      // If Passport throws/catches an error
-      if (err) {
-        res
-          .status(404)
-          .json(err);
-        return;
-      }
+  User.findOne({ email: new RegExp(['^', req.params.email, '$'].join(''), 'i') }, (err, user) => {
+    if (err) { sendJSONresponse(res, 400, err); return; }
 
-      // If a user is found
-      if (user) {
-        const token = user.generateJwt();
-        res.status(200);
-        res.json({
-          token,
-        });
-      } else {
-        // If user is not found
-        res
-          .status(401)
-          .json(info);
-      }
-    })(req, res);
+    if (!user) {
+      sendJSONresponse(res, 200, { data: true });
+      return;
+    }
+
+    sendJSONresponse(res, 200, { data: false, message: `"${user.email}" is not unique` });
+  });
 };

@@ -2,33 +2,39 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import messages from './messages';
-import LoginForm from '../../components/LoginForm/index';
-import * as loginActions from '../../actions/loginActions';
+import RegistrationForm from '../../components/RegistrationForm/index';
+import * as registerActions from '../../actions/registerActions';
 
 import baseStyle from '../../common/Style/baseStyle.css';
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
-    this.login = this.login.bind(this);
+    this.Register = this.Register.bind(this);
   }
 
-  login(values) {
-    this.props.actions.login(values);
+  Register(values) {
+    const data = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      role: 'admin',
+    };
+    this.props.actions.registerUser(data);
   }
 
   render() {
     return (
       <main>
         <div className={[baseStyle.content, baseStyle.column, baseStyle.gtMdRow, baseStyle.marginCenter].join(' ')}>
-          <LoginForm messages={messages} onSubmit={this.login} />
+          <RegistrationForm messages={messages} onSubmit={this.Register} />
         </div>
       </main>
     );
   }
 }
 
-Login.propTypes = {
+Register.propTypes = {
   actions: PropTypes.object.isRequired,
 };
 
@@ -40,8 +46,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(loginActions, dispatch),
+    actions: bindActionCreators(registerActions, dispatch),
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

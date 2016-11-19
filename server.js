@@ -3,6 +3,7 @@
 
 const path = require('path');
 const express = require('express');
+const passport = require('passport');
 const compression = require('compression')
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
@@ -11,15 +12,24 @@ const ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 const app = express();
 
 const bodyParser = require('body-parser');
-// [SH] Bring in the data model
-require('./server/db');
-// // [SH] Bring in the Passport config after model is defined
-require('./server/passport');
-var routes = require('./server/index');
 
 app.use(bodyParser.json());
 
-app.use('/api', routes);
+app.use(passport.initialize());
+
+// load models
+require('./server/models');
+// load passport strategies
+require('./server/passport');
+
+// pass the authorization checker middleware
+const authCheckMiddleware = require('./server/middleware/auth-check');
+app.use('/api', authCheckMiddleware);
+
+var publicApi = require('./server/routes/publicApi');
+var protectedApi = require('./server/routes/api');
+app.use('/publicApi', publicApi);
+app.use('/api', protectedApi);
 
 if (isDeveloping) {
   const webpack = require('webpack');

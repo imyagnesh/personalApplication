@@ -5,6 +5,7 @@ export default {
   instaImages: [],
   tweets: [],
   course: {},
+  currentUser: {},
   ajaxCallsInProgress: 0,
   locale: localStorage.getItem('locale') || 'en',
 };

@@ -2,16 +2,16 @@ import { beginAjaxCall } from './ajaxStatusAction';
 import AuthenticationApi from './../api/authenticationApi';
 import { push } from 'react-router-redux';
 
-export function login(data) {
+export function registerUser(data) {
   return (dispatch) => {
     dispatch(beginAjaxCall());
-    return AuthenticationApi.login(data).then(result => {
+    return AuthenticationApi.register(data).then(result => {
       if (result.success) {
-        localStorage.setItem('token', result.token);
-        dispatch(push('/admin/dashboard'));
+        dispatch(push('/admin'));
       }
     }).catch(error => {
       throw (error);
     });
   };
 }
+

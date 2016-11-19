@@ -1,4 +1,4 @@
-import * as types from './../actions/actionTypes';
+import * as types from '../constants';
 import initialState from './initialState';
 
 export const authors = (state = initialState.authors, action) => {
