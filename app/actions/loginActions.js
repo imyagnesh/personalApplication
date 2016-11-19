@@ -1,4 +1,4 @@
-import { beginAjaxCall } from './ajaxStatusAction';
+import { beginAjaxCall } from './ajaxStatusActions';
 import AuthenticationApi from './../api/authenticationApi';
 import { push } from 'react-router-redux';
 

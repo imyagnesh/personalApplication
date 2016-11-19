@@ -1,5 +1,5 @@
 import * as types from '../constants';
-import { beginAjaxCall } from './ajaxStatusAction';
+import { beginAjaxCall } from './ajaxStatusActions';
 import SocialMediaApi from './../api/socialMediaApi';
 
 export function loadInstaImagesSuccess(images) {

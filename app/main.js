@@ -21,7 +21,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 import LanguageProvider from './containers/LanguageProvider';
 import { getRoutes } from './routes';
 import { translationMessages } from './i18n';
-import { loadLanguages } from './actions/localeAction';
+import { loadLanguages } from './actions/localeActions';
 
 import intl from 'intl';
 injectTapEventPlugin();

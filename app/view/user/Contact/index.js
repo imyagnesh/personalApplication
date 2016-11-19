@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import CoverImg from '../../components/coverImg/index';
-import GoogleMap from '../../components/Map/index';
-import ContactForm from '../../components/ContactForm/index';
-import ContactInformation from '../../components/ContactInformation/index';
-import PosterImg from '../../common/coverVideo/cover.jpg';
+import CoverImg from '../../../components/coverImg/index';
+import GoogleMap from '../../../components/Map/index';
+import ContactForm from '../../../components/ContactForm/index';
+import ContactInformation from '../../../components/ContactInformation/index';
+import PosterImg from '../../../common/coverVideo/cover.jpg';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import messages from './messages';
-import Title from '../../components/Title/index';
+import Title from '../../../components/Title/index';
 
 
-import baseStyle from '../../common/Style/baseStyle.css';
+import baseStyle from '../../../common/Style/baseStyle.css';
 
 
 class Contact extends Component {

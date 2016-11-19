@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import messages from './messages';
-import RegistrationForm from '../../components/RegistrationForm/index';
-import * as registerActions from '../../actions/registerActions';
+import RegistrationForm from '../../../components/RegistrationForm/index';
+import { registerActions } from '../../../actions';
 
-import baseStyle from '../../common/Style/baseStyle.css';
+import baseStyle from '../../../common/Style/baseStyle.css';
 
 class Register extends Component {
   constructor(props) {

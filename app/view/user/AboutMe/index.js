@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as aboutActions from '../../actions/aboutActions';
-import CoverImg from '../../components/coverImg/index';
-import InstaSection from '../../components/AboutInstaSection/index';
-import TweeterSection from '../../components/AboutTweeterSection/index';
-import PosterImg from '../../common/coverVideo/cover.jpg';
+import { aboutActions } from '../../../actions';
+import CoverImg from '../../../components/coverImg/index';
+import InstaSection from '../../../components/AboutInstaSection/index';
+import TweeterSection from '../../../components/AboutTweeterSection/index';
+import PosterImg from '../../../common/coverVideo/cover.jpg';
 import messages from './messages';
 
 class AboutMe extends Component {

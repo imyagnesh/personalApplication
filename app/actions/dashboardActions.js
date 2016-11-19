@@ -1,6 +1,6 @@
 import * as types from '../constants';
 import jwtDecode from 'jwt-decode';
-import { beginAjaxCall } from './ajaxStatusAction';
+import { beginAjaxCall } from './ajaxStatusActions';
 import { push } from 'react-router-redux';
 
 

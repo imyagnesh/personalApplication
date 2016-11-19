@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as dashboardActions from '../../actions/dashboardActions';
+import { dashboardActions } from '../../../actions';
 
 class Dashboard extends Component {
   constructor(props, context) {

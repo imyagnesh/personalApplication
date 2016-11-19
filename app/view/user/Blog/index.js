@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import CoverImg from '../../components/coverImg/index';
-import PosterImg from '../../common/coverVideo/cover.jpg';
+import CoverImg from '../../../components/coverImg/index';
+import PosterImg from '../../../common/coverVideo/cover.jpg';
 import messages from './messages';
 
 class Blog extends Component {

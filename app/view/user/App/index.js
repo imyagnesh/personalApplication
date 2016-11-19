@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import shallowCompare from 'react-addons-shallow-compare';
 import { connect } from 'react-redux';
-import Header from '../../components/Header/index';
-import Footer from '../../components/Footer/index';
-import Drawer from '../../components/Drawer/index';
+import Header from '../../../components/Header/index';
+import Footer from '../../../components/Footer/index';
+import Drawer from '../../../components/Drawer/index';
 import messages from './messages';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentUp from 'material-ui/svg-icons/navigation/arrow-upward';
 import LinearProgress from 'material-ui/LinearProgress';
-import ScrollWrapper from '../ScrollWrapper/index';
+import ScrollWrapper from '../../../containers/ScrollWrapper';
 
 import styles from './styles.css';
 

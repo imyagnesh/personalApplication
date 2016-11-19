@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import IconButton from 'material-ui/IconButton/IconButton';
-import { changeLocale } from '../../actions/localeAction';
+import { localeActions } from '../../actions';
 import CountryFlags from '../../common/countryFlags';
 import css from './styles.css';
 
 import { injectIntl, intlShape } from 'react-intl';
 
-const LocaleSelect = ({ onChangeLocale, languages, languageId, intl }) => {
+const LocaleSelect = ({ actions, languages, languageId, intl }) => {
   const changeLanguage = (event, child) => {
     localStorage.setItem('locale', child.props.value);
-    onChangeLocale(child.props.value);
+    actions.changeLocale(child.props.value);
   };
   return (
     <div>
@@ -42,10 +43,10 @@ const LocaleSelect = ({ onChangeLocale, languages, languageId, intl }) => {
 
 
 LocaleSelect.propTypes = {
-  onChangeLocale: PropTypes.func.isRequired,
   languages: PropTypes.array.isRequired,
   languageId: PropTypes.string.isRequired,
   intl: intlShape.isRequired,
+  actions: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -54,7 +55,7 @@ const mapStateToProps = (state) => ({
 });
 function mapDispatchToProps(dispatch) {
   return {
-    onChangeLocale: locale => dispatch(changeLocale(locale)),
+    actions: bindActionCreators(localeActions, dispatch),
   };
 }
 

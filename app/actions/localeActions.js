@@ -1,5 +1,5 @@
 import * as types from '../constants';
-import { beginAjaxCall } from './ajaxStatusAction';
+import { beginAjaxCall } from './ajaxStatusActions';
 import languageApi from './../api/mockLanguageApi';
 
 export function changeLocale(languageLocale) {

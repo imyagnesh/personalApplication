@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import CoverVideo from '../../components/coverVideo/index';
-import PosterVideoMp4 from '../../common/coverVideo/cover.mp4';
-import PosterVideoWebm from '../../common/coverVideo/cover.webm';
-import PosterImg from '../../common/coverVideo/cover.jpg';
+import CoverVideo from '../../../components/coverVideo/index';
+import PosterVideoMp4 from '../../../common/coverVideo/cover.mp4';
+import PosterVideoWebm from '../../../common/coverVideo/cover.webm';
+import PosterImg from '../../../common/coverVideo/cover.jpg';
 import Divider from 'material-ui/Divider';
 
 import messages from './messages';
 
-import QualitySection from '../../components/HomeQaulitySection/index';
-import AboutSection from '../../components/HomeAboutSection/index';
-import ContactSection from '../../components/HomeContactSection/index';
-import SkillsSection from '../../components/HomeSkillsSection/index';
-import PortfolioSection from '../../components/HomePortfolioSection/index';
-import BlogSection from '../../components/HomeBlogSection/index';
+import QualitySection from '../../../components/HomeQaulitySection/index';
+import AboutSection from '../../../components/HomeAboutSection/index';
+import ContactSection from '../../../components/HomeContactSection/index';
+import SkillsSection from '../../../components/HomeSkillsSection/index';
+import PortfolioSection from '../../../components/HomePortfolioSection/index';
+import BlogSection from '../../../components/HomeBlogSection/index';
 
 
 class Home extends Component {
